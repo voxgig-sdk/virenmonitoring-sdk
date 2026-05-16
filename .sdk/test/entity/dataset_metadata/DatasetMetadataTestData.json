@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "dataset_metadata": {
+      "DATASET_METADATA00": {
+        "description": "s28",
+        "label": "s29",
+        "name": "s2a",
+        "type": "s2b"
+      },
+      "DATASET_METADATA01": {
+        "description": "s50",
+        "label": "s51",
+        "name": "s52",
+        "type": "s53"
+      },
+      "DATASET_METADATA02": {
+        "description": "s78",
+        "label": "s79",
+        "name": "s7a",
+        "type": "s7b"
+      }
+    }
+  },
+  "new": {
+    "dataset_metadata": {
+      "dataset_metadata_ref01": {
+        "description": "sa0",
+        "label": "sa1",
+        "name": "sa2",
+        "type": "sa3"
+      }
+    }
+  }
+}

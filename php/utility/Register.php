@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// Virenmonitoring SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+VirenmonitoringUtility::setRegistrar(function (VirenmonitoringUtility $u): void {
+    $u->clean = [VirenmonitoringClean::class, 'call'];
+    $u->done = [VirenmonitoringDone::class, 'call'];
+    $u->make_error = [VirenmonitoringMakeError::class, 'call'];
+    $u->feature_add = [VirenmonitoringFeatureAdd::class, 'call'];
+    $u->feature_hook = [VirenmonitoringFeatureHook::class, 'call'];
+    $u->feature_init = [VirenmonitoringFeatureInit::class, 'call'];
+    $u->fetcher = [VirenmonitoringFetcher::class, 'call'];
+    $u->make_fetch_def = [VirenmonitoringMakeFetchDef::class, 'call'];
+    $u->make_context = [VirenmonitoringMakeContext::class, 'call'];
+    $u->make_options = [VirenmonitoringMakeOptions::class, 'call'];
+    $u->make_request = [VirenmonitoringMakeRequest::class, 'call'];
+    $u->make_response = [VirenmonitoringMakeResponse::class, 'call'];
+    $u->make_result = [VirenmonitoringMakeResult::class, 'call'];
+    $u->make_point = [VirenmonitoringMakePoint::class, 'call'];
+    $u->make_spec = [VirenmonitoringMakeSpec::class, 'call'];
+    $u->make_url = [VirenmonitoringMakeUrl::class, 'call'];
+    $u->param = [VirenmonitoringParam::class, 'call'];
+    $u->prepare_auth = [VirenmonitoringPrepareAuth::class, 'call'];
+    $u->prepare_body = [VirenmonitoringPrepareBody::class, 'call'];
+    $u->prepare_headers = [VirenmonitoringPrepareHeaders::class, 'call'];
+    $u->prepare_method = [VirenmonitoringPrepareMethod::class, 'call'];
+    $u->prepare_params = [VirenmonitoringPrepareParams::class, 'call'];
+    $u->prepare_path = [VirenmonitoringPreparePath::class, 'call'];
+    $u->prepare_query = [VirenmonitoringPrepareQuery::class, 'call'];
+    $u->result_basic = [VirenmonitoringResultBasic::class, 'call'];
+    $u->result_body = [VirenmonitoringResultBody::class, 'call'];
+    $u->result_headers = [VirenmonitoringResultHeaders::class, 'call'];
+    $u->transform_request = [VirenmonitoringTransformRequest::class, 'call'];
+    $u->transform_response = [VirenmonitoringTransformResponse::class, 'call'];
+});

@@ -1,0 +1,22 @@
+# BasicDatasetMetadataFlow
+
+main: kit: flow: BasicDatasetMetadataFlow:
+{
+  entity: "dataset_metadata",
+  kind: "basic",
+  name: "BasicDatasetMetadataFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "dataset_metadata_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDatasetMetadataFlow"
+}

@@ -1,0 +1,22 @@
+# BasicVirusMonitoringFlow
+
+main: kit: flow: BasicVirusMonitoringFlow:
+{
+  entity: "virus_monitoring",
+  kind: "basic",
+  name: "BasicVirusMonitoringFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "virus_monitoring_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicVirusMonitoringFlow"
+}

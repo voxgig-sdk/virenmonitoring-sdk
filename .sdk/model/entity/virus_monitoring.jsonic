@@ -1,0 +1,130 @@
+# Entity: virus_monitoring
+
+main: kit: entity: virus_monitoring: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "datasetid"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "field"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "record_timestamp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "recordid"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "virus_monitoring"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "100304"
+                kind: "query"
+                name: "dataset"
+                orig: "dataset"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "exclude"
+                orig: "exclude"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "de"
+                kind: "query"
+                name: "lang"
+                orig: "lang"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "refine"
+                orig: "refine"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "row"
+                orig: "row"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start"
+                orig: "start"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/records/1.0/search/"
+          parts: [
+            "records"
+            "1.0"
+            "search"
+          ]
+          select: {
+            exist: [
+              "dataset"
+              "exclude"
+              "lang"
+              "q"
+              "refine"
+              "row"
+              "sort"
+              "start"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

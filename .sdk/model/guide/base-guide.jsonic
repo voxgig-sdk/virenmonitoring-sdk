@@ -1,0 +1,20 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: dataset_metadata: {
+    path: "/datasets/1.0/100304/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: virus_monitoring: {
+    path: "/records/1.0/search/": {
+      op: list: method: *GET
+    }
+  }
+
+}

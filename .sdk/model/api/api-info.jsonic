@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Kanton Basel-Stadt Open Government Data"
+        url: "https://data.bs.ch"
+      }
+      description: "Provides data on RNA copies of specified viruses in the wastewater of ARA Basel, along with corresponding case numbers. Data is updated weekly and includes information on SARS-CoV-2, RSV, Influenza A, and Influenza B."
+      license: {
+        name: "Open Data"
+        url: "https://data.bs.ch"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://data.bs.ch/api"
+        }
+      ]
+      title: "Virenmonitoring API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

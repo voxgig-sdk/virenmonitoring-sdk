@@ -1,0 +1,329 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Virenmonitoring API",
+    "description": "Provides data on RNA copies of specified viruses in the wastewater of ARA Basel, along with corresponding case numbers. Data is updated weekly and includes information on SARS-CoV-2, RSV, Influenza A, and Influenza B.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Kanton Basel-Stadt Open Government Data",
+      "url": "https://data.bs.ch"
+    },
+    "license": {
+      "name": "Open Data",
+      "url": "https://data.bs.ch"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.bs.ch/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/records/1.0/search/": {
+      "get": {
+        "summary": "Search virus monitoring records",
+        "description": "Retrieve virus monitoring data from wastewater analysis, including RNA copies and case numbers for SARS-CoV-2, RSV, Influenza A, and Influenza B",
+        "operationId": "searchVirusRecords",
+        "tags": [
+          "Virus Monitoring"
+        ],
+        "parameters": [
+          {
+            "name": "dataset",
+            "in": "query",
+            "description": "Dataset identifier for wastewater virus monitoring",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "100304"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Full-text search query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of records to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Index of the first record to return (for pagination)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Field to sort by",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "refine",
+            "in": "query",
+            "description": "Refine results by field value",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "exclude",
+            "in": "query",
+            "description": "Exclude results by field value",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "Language for response",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "de",
+                "en",
+                "fr"
+              ],
+              "default": "de"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with virus monitoring data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nhits": {
+                      "type": "integer",
+                      "description": "Total number of records matching the query"
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "description": "Query parameters used"
+                    },
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "datasetid": {
+                            "type": "string",
+                            "description": "Dataset identifier"
+                          },
+                          "recordid": {
+                            "type": "string",
+                            "description": "Unique record identifier"
+                          },
+                          "fields": {
+                            "type": "object",
+                            "properties": {
+                              "date": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date of measurement"
+                              },
+                              "sars_cov_2_rna_copies": {
+                                "type": "number",
+                                "description": "RNA copies of SARS-CoV-2 per liter"
+                              },
+                              "sars_cov_2_cases": {
+                                "type": "integer",
+                                "description": "Number of reported COVID-19 cases"
+                              },
+                              "rsv_rna_copies": {
+                                "type": "number",
+                                "description": "RNA copies of RSV per liter"
+                              },
+                              "rsv_cases": {
+                                "type": "integer",
+                                "description": "Number of reported RSV cases"
+                              },
+                              "influenza_a_rna_copies": {
+                                "type": "number",
+                                "description": "RNA copies of Influenza A per liter"
+                              },
+                              "influenza_a_cases": {
+                                "type": "integer",
+                                "description": "Number of reported Influenza A cases"
+                              },
+                              "influenza_b_rna_copies": {
+                                "type": "number",
+                                "description": "RNA copies of Influenza B per liter"
+                              },
+                              "influenza_b_cases": {
+                                "type": "integer",
+                                "description": "Number of reported Influenza B cases"
+                              }
+                            }
+                          },
+                          "record_timestamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp when the record was created/updated"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/datasets/1.0/100304/": {
+      "get": {
+        "summary": "Get virus monitoring dataset metadata",
+        "description": "Retrieve metadata and information about the wastewater virus monitoring dataset",
+        "operationId": "getDatasetMetadata",
+        "tags": [
+          "Dataset Metadata"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "Language for response",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "de",
+                "en",
+                "fr"
+              ],
+              "default": "de"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with dataset metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "datasetid": {
+                      "type": "string",
+                      "description": "Dataset identifier"
+                    },
+                    "metas": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "description": "Dataset title"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "Dataset description"
+                        },
+                        "modified": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Last modification date"
+                        },
+                        "publisher": {
+                          "type": "string",
+                          "description": "Dataset publisher"
+                        },
+                        "keyword": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Dataset keywords"
+                        },
+                        "license": {
+                          "type": "string",
+                          "description": "Data license"
+                        }
+                      }
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Field name"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Field data type"
+                          },
+                          "label": {
+                            "type": "string",
+                            "description": "Field label"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Field description"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Dataset not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Virus Monitoring",
+      "description": "Operations related to wastewater virus monitoring data"
+    },
+    {
+      "name": "Dataset Metadata",
+      "description": "Operations related to dataset metadata and information"
+    }
+  ]
+}
