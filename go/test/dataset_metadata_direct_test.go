@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/virenmonitoring-sdk"
-	"github.com/voxgig-sdk/virenmonitoring-sdk/core"
+	sdk "github.com/voxgig-sdk/virenmonitoring-sdk/go"
+	"github.com/voxgig-sdk/virenmonitoring-sdk/go/core"
 )
 
 func TestDatasetMetadataDirect(t *testing.T) {

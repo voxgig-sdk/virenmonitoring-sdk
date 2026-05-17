@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/virenmonitoring-sdk"
+	sdk "github.com/voxgig-sdk/virenmonitoring-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

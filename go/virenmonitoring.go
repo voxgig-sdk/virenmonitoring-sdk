@@ -1,10 +1,10 @@
 package voxgigvirenmonitoringsdk
 
 import (
-	"github.com/voxgig-sdk/virenmonitoring-sdk/core"
-	"github.com/voxgig-sdk/virenmonitoring-sdk/entity"
-	"github.com/voxgig-sdk/virenmonitoring-sdk/feature"
-	_ "github.com/voxgig-sdk/virenmonitoring-sdk/utility"
+	"github.com/voxgig-sdk/virenmonitoring-sdk/go/core"
+	"github.com/voxgig-sdk/virenmonitoring-sdk/go/entity"
+	"github.com/voxgig-sdk/virenmonitoring-sdk/go/feature"
+	_ "github.com/voxgig-sdk/virenmonitoring-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

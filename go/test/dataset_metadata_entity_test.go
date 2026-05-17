@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/virenmonitoring-sdk"
-	"github.com/voxgig-sdk/virenmonitoring-sdk/core"
+	sdk "github.com/voxgig-sdk/virenmonitoring-sdk/go"
+	"github.com/voxgig-sdk/virenmonitoring-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/virenmonitoring-sdk/go/utility/struct"
 )
 
 func TestDatasetMetadataEntity(t *testing.T) {
