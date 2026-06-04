@@ -92,7 +92,6 @@ def _dataset_metadata_basic_setup(extra):
         "VIRENMONITORING_TEST_DATASET_METADATA_ENTID": idmap,
         "VIRENMONITORING_TEST_LIVE": "FALSE",
         "VIRENMONITORING_TEST_EXPLAIN": "FALSE",
-        "VIRENMONITORING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _dataset_metadata_basic_setup(extra):
     if env.get("VIRENMONITORING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("VIRENMONITORING_APIKEY"),
             },
             extra or {},
         ])

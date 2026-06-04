@@ -21,7 +21,18 @@
           }
         ],
         "title": "Virenmonitoring API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Weekly viral RNA measurements from Basel wastewater for SARS-CoV-2, RSV, and influenza",
+        "homepage": "https://data.bs.ch/",
+        "docs_url": "https://data.bs.ch/api/",
+        "license_short": "Open data published by Kanton Basel-Stadt via the data.bs.ch open government data portal.",
+        "license_md": "- Published as Open Government Data by Kanton Basel-Stadt on the data.bs.ch portal.\n- Hosted on OpenDataSoft infrastructure; consult the portal's terms and conditions for reuse and attribution requirements.\n- No specific licence string is advertised on the dataset landing page; cite Kanton Basel-Stadt as the source.",
+        "about_md": "The Virenmonitoring API exposes the wastewater virus surveillance datasets that the Abwasserreinigungsanlage (ARA) Basel publishes through the [Kanton Basel-Stadt open data portal](https://data.bs.ch/). The programme samples wastewater entering Basel's treatment plant and quantifies viral RNA copies for several respiratory pathogens, alongside reported clinical case counts for cross-reference.\n\nWhat you get from the API:\n\n- Weekly measurements of viral RNA copies per 100,000 residents in the Basel catchment.\n- Coverage of SARS-CoV-2, RSV, and influenza A and B.\n- Confirmed positive case numbers reported alongside the wastewater signal.\n- Dataset metadata (titles, descriptions, update timestamps) for each monitored virus.\n\nThe portal is operated on top of OpenDataSoft, so each dataset is reachable through the standard OpenDataSoft records and exports endpoints under `https://data.bs.ch/api`. No authentication is documented for read access; CORS behaviour varies between datasets (the SARS-CoV-2 dataset is reported as CORS-enabled while the influenza A dataset is not).",
+        "entity_desc": {
+          "dataset_metadata": "Catalogue-level information about each wastewater monitoring dataset (title, description, update cadence, fields), served by the portal's OpenDataSoft catalogue endpoints under `/api`.",
+          "virus_monitoring": "The time-series records themselves — weekly viral RNA copies per 100,000 residents plus confirmed case counts for SARS-CoV-2, RSV, and influenza A/B, retrieved from the per-dataset records and exports endpoints."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -29,7 +40,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "dataset_metadata": {

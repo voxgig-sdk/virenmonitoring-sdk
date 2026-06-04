@@ -61,14 +61,12 @@ def _virus_monitoring_direct_setup(mockres):
     env = runner.env_override({
         "VIRENMONITORING_TEST_VIRUS_MONITORING_ENTID": {},
         "VIRENMONITORING_TEST_LIVE": "FALSE",
-        "VIRENMONITORING_APIKEY": "NONE",
     })
 
     live = env.get("VIRENMONITORING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("VIRENMONITORING_APIKEY"),
         }
         client = VirenmonitoringSDK(merged_opts)
         return {

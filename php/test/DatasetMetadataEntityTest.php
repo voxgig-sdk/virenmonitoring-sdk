@@ -86,7 +86,6 @@ function dataset_metadata_basic_setup($extra)
         "VIRENMONITORING_TEST_DATASET_METADATA_ENTID" => $idmap,
         "VIRENMONITORING_TEST_LIVE" => "FALSE",
         "VIRENMONITORING_TEST_EXPLAIN" => "FALSE",
-        "VIRENMONITORING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +97,6 @@ function dataset_metadata_basic_setup($extra)
     if ($env["VIRENMONITORING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["VIRENMONITORING_APIKEY"],
             ],
             $extra ?? [],
         ]);
