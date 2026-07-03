@@ -10,7 +10,7 @@ The TypeScript SDK for the Virenmonitoring API — a type-safe, entity-oriented 
 
 ## Install
 ```bash
-npm install virenmonitoring
+npm install @voxgig-sdk/virenmonitoring
 ```
 ## Tutorial: your first API call
 

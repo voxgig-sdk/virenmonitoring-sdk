@@ -8,12 +8,14 @@ source = {
   dir = "virenmonitoring-sdk/lua"
 }
 description = {
-  summary = "Virenmonitoring SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Virenmonitoring public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/virenmonitoring-sdk",
+  issues_url = "https://github.com/voxgig-sdk/virenmonitoring-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "virenmonitoring" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

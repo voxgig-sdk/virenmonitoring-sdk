@@ -10,7 +10,7 @@ The PHP SDK for the Virenmonitoring API — an entity-oriented client using PHP 
 
 ## Install
 ```bash
-composer require voxgig/virenmonitoring-sdk
+composer require voxgig-sdk/virenmonitoring
 ```
 
 

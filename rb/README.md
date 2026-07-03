@@ -10,13 +10,13 @@ The Ruby SDK for the Virenmonitoring API — an entity-oriented client using idi
 
 ## Install
 ```bash
-gem install virenmonitoring-sdk
+gem install voxgig-sdk-virenmonitoring
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "virenmonitoring-sdk"
+gem "voxgig-sdk-virenmonitoring"
 ```
 
 Then run:

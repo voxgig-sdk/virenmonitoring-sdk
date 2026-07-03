@@ -10,7 +10,7 @@ The Lua SDK for the Virenmonitoring API — an entity-oriented client using Lua 
 
 ## Install
 ```bash
-luarocks install virenmonitoring-sdk
+luarocks install voxgig-sdk-virenmonitoring
 ```
 
 If the module is not yet published, add the source directory to

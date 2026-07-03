@@ -10,7 +10,7 @@ The Python SDK for the Virenmonitoring API — an entity-oriented client followi
 
 ## Install
 ```bash
-pip install virenmonitoring-sdk
+pip install voxgig-sdk-virenmonitoring
 ```
 
 Or install from source:
