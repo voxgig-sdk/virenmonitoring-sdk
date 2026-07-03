@@ -83,6 +83,7 @@ def virus_monitoring_basic_setup(extra)
     "VIRENMONITORING_TEST_VIRUS_MONITORING_ENTID" => idmap,
     "VIRENMONITORING_TEST_LIVE" => "FALSE",
     "VIRENMONITORING_TEST_EXPLAIN" => "FALSE",
+    "VIRENMONITORING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +95,7 @@ def virus_monitoring_basic_setup(extra)
   if env["VIRENMONITORING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["VIRENMONITORING_APIKEY"],
       },
       extra || {},
     ])

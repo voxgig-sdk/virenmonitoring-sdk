@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'VIRENMONITORING_TEST_VIRUS_MONITORING_ENTID': {},
     'VIRENMONITORING_TEST_LIVE': 'FALSE',
+    'VIRENMONITORING_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.VIRENMONITORING_TEST_LIVE
 
   if (live) {
     const client = new VirenmonitoringSDK({
+      apikey: env.VIRENMONITORING_APIKEY,
     })
 
     let idmap: any = env['VIRENMONITORING_TEST_VIRUS_MONITORING_ENTID']

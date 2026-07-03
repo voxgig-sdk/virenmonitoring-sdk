@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'VIRENMONITORING_TEST_DATASET_METADATA_ENTID': idmap,
     'VIRENMONITORING_TEST_LIVE': 'FALSE',
     'VIRENMONITORING_TEST_EXPLAIN': 'FALSE',
+    'VIRENMONITORING_APIKEY': 'NONE',
   })
 
   idmap = env['VIRENMONITORING_TEST_DATASET_METADATA_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new VirenmonitoringSDK(merge([
       {
+        apikey: env.VIRENMONITORING_APIKEY,
       },
       extra
     ]))

@@ -119,6 +119,7 @@ func dataset_metadataBasicSetup(extra map[string]any) *entityTestSetup {
 		"VIRENMONITORING_TEST_DATASET_METADATA_ENTID": idmap,
 		"VIRENMONITORING_TEST_LIVE":      "FALSE",
 		"VIRENMONITORING_TEST_EXPLAIN":   "FALSE",
+		"VIRENMONITORING_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["VIRENMONITORING_TEST_DATASET_METADATA_ENTID"])
@@ -129,6 +130,7 @@ func dataset_metadataBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["VIRENMONITORING_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["VIRENMONITORING_APIKEY"],
 			},
 			extra,
 		})

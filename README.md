@@ -1,21 +1,8 @@
 # Virenmonitoring SDK
 
-Weekly viral RNA measurements from Basel wastewater for SARS-CoV-2, RSV, and influenza
+Virenmonitoring API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Virenmonitoring API
-
-The Virenmonitoring API exposes the wastewater virus surveillance datasets that the Abwasserreinigungsanlage (ARA) Basel publishes through the [Kanton Basel-Stadt open data portal](https://data.bs.ch/). The programme samples wastewater entering Basel's treatment plant and quantifies viral RNA copies for several respiratory pathogens, alongside reported clinical case counts for cross-reference.
-
-What you get from the API:
-
-- Weekly measurements of viral RNA copies per 100,000 residents in the Basel catchment.
-- Coverage of SARS-CoV-2, RSV, and influenza A and B.
-- Confirmed positive case numbers reported alongside the wastewater signal.
-- Dataset metadata (titles, descriptions, update timestamps) for each monitored virus.
-
-The portal is operated on top of OpenDataSoft, so each dataset is reachable through the standard OpenDataSoft records and exports endpoints under `https://data.bs.ch/api`. No authentication is documented for read access; CORS behaviour varies between datasets (the SARS-CoV-2 dataset is reported as CORS-enabled while the influenza A dataset is not).
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install virenmonitoring-sdk
 luarocks install virenmonitoring-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { VirenmonitoringSDK } from 'virenmonitoring'
 
-const client = new VirenmonitoringSDK({})
+const client = new VirenmonitoringSDK({
+  apikey: process.env.VIRENMONITORING_APIKEY,
+})
 
 // List all datasetmetadatas
 const datasetmetadatas = await client.DatasetMetadata().list()
+console.log(datasetmetadatas.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **DatasetMetadata** | Catalogue-level information about each wastewater monitoring dataset (title, description, update cadence, fields), served by the portal's OpenDataSoft catalogue endpoints under `/api`. | `/datasets/1.0/100304/` |
-| **VirusMonitoring** | The time-series records themselves — weekly viral RNA copies per 100,000 residents plus confirmed case counts for SARS-CoV-2, RSV, and influenza A/B, retrieved from the per-dataset records and exports endpoints. | `/records/1.0/search/` |
+| **DatasetMetadata** |  | `/datasets/1.0/100304/` |
+| **VirusMonitoring** |  | `/records/1.0/search/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +101,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from virenmonitoring_sdk import VirenmonitoringSDK
 
-client = VirenmonitoringSDK({})
+client = VirenmonitoringSDK({
+    "apikey": os.environ.get("VIRENMONITORING_APIKEY"),
+})
 
 # List all datasetmetadatas
-datasetmetadatas, err = client.DatasetMetadata(None).list(None, None)
+datasetmetadatas, err = client.DatasetMetadata().list()
+print(datasetmetadatas)
 ```
 
 ### PHP
@@ -126,10 +119,13 @@ datasetmetadatas, err = client.DatasetMetadata(None).list(None, None)
 <?php
 require_once 'virenmonitoring_sdk.php';
 
-$client = new VirenmonitoringSDK([]);
+$client = new VirenmonitoringSDK([
+    "apikey" => getenv("VIRENMONITORING_APIKEY"),
+]);
 
 // List all datasetmetadatas
-[$datasetmetadatas, $err] = $client->DatasetMetadata(null)->list(null, null);
+[$datasetmetadatas, $err] = $client->DatasetMetadata()->list();
+print_r($datasetmetadatas);
 ```
 
 ### Golang
@@ -137,10 +133,13 @@ $client = new VirenmonitoringSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/virenmonitoring-sdk/go"
 
-client := sdk.NewVirenmonitoringSDK(map[string]any{})
+client := sdk.NewVirenmonitoringSDK(map[string]any{
+    "apikey": os.Getenv("VIRENMONITORING_APIKEY"),
+})
 
 // List all datasetmetadatas
 datasetmetadatas, err := client.DatasetMetadata(nil).List(nil, nil)
+fmt.Println(datasetmetadatas)
 ```
 
 ### Ruby
@@ -148,10 +147,13 @@ datasetmetadatas, err := client.DatasetMetadata(nil).List(nil, nil)
 ```ruby
 require_relative "Virenmonitoring_sdk"
 
-client = VirenmonitoringSDK.new({})
+client = VirenmonitoringSDK.new({
+  "apikey" => ENV["VIRENMONITORING_APIKEY"],
+})
 
 # List all datasetmetadatas
-datasetmetadatas, err = client.DatasetMetadata(nil).list(nil, nil)
+datasetmetadatas, err = client.DatasetMetadata().list
+puts datasetmetadatas
 ```
 
 ### Lua
@@ -159,10 +161,13 @@ datasetmetadatas, err = client.DatasetMetadata(nil).list(nil, nil)
 ```lua
 local sdk = require("virenmonitoring_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("VIRENMONITORING_APIKEY"),
+})
 
 -- List all datasetmetadatas
-local datasetmetadatas, err = client:DatasetMetadata(nil):list(nil, nil)
+local datasetmetadatas, err = client:DatasetMetadata():list()
+print(datasetmetadatas)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +186,21 @@ const result = await client.DatasetMetadata().load({ id: 'test01' })
 ### Python
 
 ```python
-client = VirenmonitoringSDK.test(None, None)
-result, err = client.DatasetMetadata(None).load(
-    {"id": "test01"}, None
-)
+client = VirenmonitoringSDK.test()
+result, err = client.DatasetMetadata().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = VirenmonitoringSDK::test(null, null);
-[$result, $err] = $client->DatasetMetadata(null)->load(
-    ["id" => "test01"], null
-);
+$client = VirenmonitoringSDK::test();
+[$result, $err] = $client->DatasetMetadata()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.DatasetMetadata(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +209,15 @@ result, err := client.DatasetMetadata(nil).Load(
 ### Ruby
 
 ```ruby
-client = VirenmonitoringSDK.test(nil, nil)
-result, err = client.DatasetMetadata(nil).load(
-  { "id" => "test01" }, nil
-)
+client = VirenmonitoringSDK.test
+result, err = client.DatasetMetadata().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:DatasetMetadata(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:DatasetMetadata():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,15 +321,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Virenmonitoring API
-
-- Upstream: [https://data.bs.ch/](https://data.bs.ch/)
-- API docs: [https://data.bs.ch/api/](https://data.bs.ch/api/)
-
-- Published as Open Government Data by Kanton Basel-Stadt on the data.bs.ch portal.
-- Hosted on OpenDataSoft infrastructure; consult the portal's terms and conditions for reuse and attribution requirements.
-- No specific licence string is advertised on the dataset landing page; cite Kanton Basel-Stadt as the source.
 
 ---
 

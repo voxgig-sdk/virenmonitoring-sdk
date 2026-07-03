@@ -63,12 +63,14 @@ function dataset_metadata_direct_setup(mockres)
   local env = runner.env_override({
     ["VIRENMONITORING_TEST_DATASET_METADATA_ENTID"] = {},
     ["VIRENMONITORING_TEST_LIVE"] = "FALSE",
+    ["VIRENMONITORING_APIKEY"] = "NONE",
   })
 
   local live = env["VIRENMONITORING_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["VIRENMONITORING_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {
