@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:dataset_metadata():list() / client:dataset_metadata():load({ id = ... })
+function VirenmonitoringSDK:dataset_metadata(data)
+  local EntityMod = require("entity.dataset_metadata_entity")
+  if data == nil then
+    if self._dataset_metadata == nil then
+      self._dataset_metadata = EntityMod.new(self, nil)
+    end
+    return self._dataset_metadata
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:dataset_metadata() instead.
 function VirenmonitoringSDK:DatasetMetadata(data)
   local EntityMod = require("entity.dataset_metadata_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:virus_monitoring():list() / client:virus_monitoring():load({ id = ... })
+function VirenmonitoringSDK:virus_monitoring(data)
+  local EntityMod = require("entity.virus_monitoring_entity")
+  if data == nil then
+    if self._virus_monitoring == nil then
+      self._virus_monitoring = EntityMod.new(self, nil)
+    end
+    return self._virus_monitoring
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:virus_monitoring() instead.
 function VirenmonitoringSDK:VirusMonitoring(data)
   local EntityMod = require("entity.virus_monitoring_entity")
   return EntityMod.new(self, data)

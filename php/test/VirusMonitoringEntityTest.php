@@ -50,8 +50,7 @@ class VirusMonitoringEntityTest extends TestCase
         $virus_monitoring_ref01_ent = $client->VirusMonitoring(null);
         $virus_monitoring_ref01_match = [];
 
-        [$virus_monitoring_ref01_list_result, $err] = $virus_monitoring_ref01_ent->list($virus_monitoring_ref01_match, null);
-        $this->assertNull($err);
+        $virus_monitoring_ref01_list_result = $virus_monitoring_ref01_ent->list($virus_monitoring_ref01_match, null);
         $this->assertIsArray($virus_monitoring_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function virus_monitoring_basic_setup($extra)
         "VIRENMONITORING_TEST_VIRUS_MONITORING_ENTID" => $idmap,
         "VIRENMONITORING_TEST_LIVE" => "FALSE",
         "VIRENMONITORING_TEST_EXPLAIN" => "FALSE",
-        "VIRENMONITORING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function virus_monitoring_basic_setup($extra)
     if ($env["VIRENMONITORING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["VIRENMONITORING_APIKEY"],
             ],
             $extra ?? [],
         ]);

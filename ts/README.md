@@ -9,9 +9,12 @@ The TypeScript SDK for the Virenmonitoring API — a type-safe, entity-oriented 
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/virenmonitoring
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/virenmonitoring-sdk/releases](https://github.com/voxgig-sdk/virenmonitoring-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { VirenmonitoringSDK } from 'virenmonitoring'
+import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring'
 
-const client = new VirenmonitoringSDK({
-  apikey: process.env.VIRENMONITORING_APIKEY,
-})
+const client = new VirenmonitoringSDK()
 ```
 
 ### 2. List datasetmetadatas
 
 ```ts
-const result = await client.DatasetMetadata().list()
+const result = await client.datasetmetadata.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = VirenmonitoringSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.datasetmetadata.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new VirenmonitoringSDK({ apikey: '...' })
+const client = new VirenmonitoringSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.datasetmetadata
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new VirenmonitoringSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -136,7 +136,6 @@ Create a `.env.local` file at the project root:
 
 ```
 VIRENMONITORING_TEST_LIVE=TRUE
-VIRENMONITORING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new VirenmonitoringSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new VirenmonitoringSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -285,7 +282,7 @@ API path: `/records/1.0/search/`
 
 ### DatasetMetadata
 
-Create an instance: `const dataset_metadata = client.DatasetMetadata()`
+Create an instance: `const dataset_metadata = client.dataset_metadata`
 
 #### Operations
 
@@ -305,13 +302,13 @@ Create an instance: `const dataset_metadata = client.DatasetMetadata()`
 #### Example: List
 
 ```ts
-const dataset_metadatas = await client.DatasetMetadata().list()
+const dataset_metadatas = await client.dataset_metadata.list()
 ```
 
 
 ### VirusMonitoring
 
-Create an instance: `const virus_monitoring = client.VirusMonitoring()`
+Create an instance: `const virus_monitoring = client.virus_monitoring`
 
 #### Operations
 
@@ -331,7 +328,7 @@ Create an instance: `const virus_monitoring = client.VirusMonitoring()`
 #### Example: List
 
 ```ts
-const virus_monitorings = await client.VirusMonitoring().list()
+const virus_monitorings = await client.virus_monitoring.list()
 ```
 
 
@@ -392,7 +389,7 @@ virenmonitoring/
 Import the SDK from the package root:
 
 ```ts
-import { VirenmonitoringSDK } from 'virenmonitoring'
+import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring'
 ```
 
 ### Entity state
@@ -402,11 +399,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const datasetmetadata = client.datasetmetadata
+await datasetmetadata.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// datasetmetadata.data() now returns the loaded datasetmetadata data
+// datasetmetadata.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

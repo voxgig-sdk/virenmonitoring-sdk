@@ -50,8 +50,7 @@ class TestVirusMonitoringEntity:
         virus_monitoring_ref01_ent = client.VirusMonitoring(None)
         virus_monitoring_ref01_match = {}
 
-        virus_monitoring_ref01_list_result, err = virus_monitoring_ref01_ent.list(virus_monitoring_ref01_match, None)
-        assert err is None
+        virus_monitoring_ref01_list_result = virus_monitoring_ref01_ent.list(virus_monitoring_ref01_match, None)
         assert isinstance(virus_monitoring_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _virus_monitoring_basic_setup(extra):
         "VIRENMONITORING_TEST_VIRUS_MONITORING_ENTID": idmap,
         "VIRENMONITORING_TEST_LIVE": "FALSE",
         "VIRENMONITORING_TEST_EXPLAIN": "FALSE",
-        "VIRENMONITORING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _virus_monitoring_basic_setup(extra):
     if env.get("VIRENMONITORING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("VIRENMONITORING_APIKEY"),
             },
             extra or {},
         ])

@@ -9,7 +9,7 @@ require_once __DIR__ . '/../core/Error.php';
 
 class VirenmonitoringMakeError
 {
-    public static function call(?VirenmonitoringContext $ctx, mixed $err): array
+    public static function call(?VirenmonitoringContext $ctx, mixed $err): mixed
     {
         if ($ctx === null) {
             require_once __DIR__ . '/../core/Context.php';
@@ -52,8 +52,8 @@ class VirenmonitoringMakeError
         $ctx->ctrl->err = $sdk_err;
 
         if ($ctx->ctrl->throw_err === false) {
-            return [$result->resdata, null];
+            return $result->resdata;
         }
-        return [null, $sdk_err];
+        throw $sdk_err;
     }
 }

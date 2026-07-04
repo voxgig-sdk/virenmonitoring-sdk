@@ -93,14 +93,12 @@ func virus_monitoringDirectSetup(mockres any) *virus_monitoringDirectSetupResult
 	env := envOverride(map[string]any{
 		"VIRENMONITORING_TEST_VIRUS_MONITORING_ENTID": map[string]any{},
 		"VIRENMONITORING_TEST_LIVE":    "FALSE",
-		"VIRENMONITORING_APIKEY":       "NONE",
 	})
 
 	live := env["VIRENMONITORING_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["VIRENMONITORING_APIKEY"],
 		}
 		client := sdk.NewVirenmonitoringSDK(mergedOpts)
 

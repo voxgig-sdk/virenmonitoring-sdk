@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch VirusMonitoringListMatch
+---@param ctrl? table
+---@return VirusMonitoring[]
+---@return string? err
 function VirusMonitoringEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch DatasetMetadataListMatch
+---@param ctrl? table
+---@return DatasetMetadata[]
+---@return string? err
 function DatasetMetadataEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

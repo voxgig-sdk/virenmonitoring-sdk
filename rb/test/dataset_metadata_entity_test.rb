@@ -43,8 +43,7 @@ class DatasetMetadataEntityTest < Minitest::Test
     dataset_metadata_ref01_ent = client.DatasetMetadata(nil)
     dataset_metadata_ref01_match = {}
 
-    dataset_metadata_ref01_list_result, err = dataset_metadata_ref01_ent.list(dataset_metadata_ref01_match, nil)
-    assert_nil err
+    dataset_metadata_ref01_list_result = dataset_metadata_ref01_ent.list(dataset_metadata_ref01_match, nil)
     assert dataset_metadata_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def dataset_metadata_basic_setup(extra)
     "VIRENMONITORING_TEST_DATASET_METADATA_ENTID" => idmap,
     "VIRENMONITORING_TEST_LIVE" => "FALSE",
     "VIRENMONITORING_TEST_EXPLAIN" => "FALSE",
-    "VIRENMONITORING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def dataset_metadata_basic_setup(extra)
   if env["VIRENMONITORING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["VIRENMONITORING_APIKEY"],
       },
       extra || {},
     ])

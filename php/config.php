@@ -20,9 +20,6 @@ class VirenmonitoringConfig
             ],
             "options" => [
                 "base" => "https://data.bs.ch/api",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

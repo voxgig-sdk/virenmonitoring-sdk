@@ -45,6 +45,7 @@ class DatasetMetadataEntity
     end
   end
 
+  # @return [DatasetMetadata, Hash] the current DatasetMetadata data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class DatasetMetadataEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of DatasetMetadata fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class DatasetMetadataEntity
   
 
   
+  # List DatasetMetadata items matching the given filter.
+  #
+  # @param reqmatch [DatasetMetadataListMatch, Hash, nil] match filter (any subset of DatasetMetadata fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<DatasetMetadata>, Array] the matching DatasetMetadata items; raises VirenmonitoringError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

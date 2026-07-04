@@ -93,14 +93,12 @@ func dataset_metadataDirectSetup(mockres any) *dataset_metadataDirectSetupResult
 	env := envOverride(map[string]any{
 		"VIRENMONITORING_TEST_DATASET_METADATA_ENTID": map[string]any{},
 		"VIRENMONITORING_TEST_LIVE":    "FALSE",
-		"VIRENMONITORING_APIKEY":       "NONE",
 	})
 
 	live := env["VIRENMONITORING_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["VIRENMONITORING_APIKEY"],
 		}
 		client := sdk.NewVirenmonitoringSDK(mergedOpts)
 

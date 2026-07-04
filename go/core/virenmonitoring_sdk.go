@@ -245,11 +245,17 @@ func (sdk *VirenmonitoringSDK) Direct(fetchargs map[string]any) (map[string]any,
 }
 
 
+// DatasetMetadata returns a DatasetMetadata entity bound to this client.
+// Idiomatic usage: client.DatasetMetadata(nil).List(nil, nil) or
+// client.DatasetMetadata(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *VirenmonitoringSDK) DatasetMetadata(data map[string]any) VirenmonitoringEntity {
 	return NewDatasetMetadataEntityFunc(sdk, data)
 }
 
 
+// VirusMonitoring returns a VirusMonitoring entity bound to this client.
+// Idiomatic usage: client.VirusMonitoring(nil).List(nil, nil) or
+// client.VirusMonitoring(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *VirenmonitoringSDK) VirusMonitoring(data map[string]any) VirenmonitoringEntity {
 	return NewVirusMonitoringEntityFunc(sdk, data)
 }

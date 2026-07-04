@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `VirenmonitoringSDK.test()`.
 ## DatasetMetadataEntity
 
 ```ts
-const dataset_metadata = client.DatasetMetadata()
+const dataset_metadata = client.dataset_metadata
 ```
 
 ### Fields
@@ -141,7 +140,7 @@ const dataset_metadata = client.DatasetMetadata()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.DatasetMetadata().list()
+const results = await client.dataset_metadata.list()
 ```
 
 ### Common Methods
@@ -175,7 +174,7 @@ Return a copy of the entity options.
 ## VirusMonitoringEntity
 
 ```ts
-const virus_monitoring = client.VirusMonitoring()
+const virus_monitoring = client.virus_monitoring
 ```
 
 ### Fields
@@ -194,7 +193,7 @@ const virus_monitoring = client.VirusMonitoring()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.VirusMonitoring().list()
+const results = await client.virus_monitoring.list()
 ```
 
 ### Common Methods
