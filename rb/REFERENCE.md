@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## DatasetMetadataEntity
 
 ```ruby
-dataset_metadata = client.dataset_metadata
+dataset_metadata = client.DatasetMetadata
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ dataset_metadata = client.dataset_metadata
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.dataset_metadata.list(nil)
+results = client.DatasetMetadata.list(nil)
 ```
 
 ### Common Methods
@@ -145,7 +145,7 @@ Return the entity name.
 ## VirusMonitoringEntity
 
 ```ruby
-virus_monitoring = client.virus_monitoring
+virus_monitoring = client.VirusMonitoring
 ```
 
 ### Fields
@@ -164,7 +164,7 @@ virus_monitoring = client.virus_monitoring
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.virus_monitoring.list(nil)
+results = client.VirusMonitoring.list(nil)
 ```
 
 ### Common Methods

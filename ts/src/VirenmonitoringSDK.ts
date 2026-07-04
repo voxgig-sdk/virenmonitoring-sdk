@@ -205,28 +205,14 @@ class VirenmonitoringSDK {
 
 
 
-  _dataset_metadata?: DatasetMetadataEntity
-
-  // Idiomatic facade: `client.dataset_metadata.list()` / `client.dataset_metadata.load({ id })`.
-  get dataset_metadata(): DatasetMetadataEntity {
-    return (this._dataset_metadata ??= new DatasetMetadataEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.dataset_metadata` instead. */
+  // Entity access: `client.DatasetMetadata().list()` / `client.DatasetMetadata().load({ id })`.
   DatasetMetadata(data?: any) {
     const self = this
     return new DatasetMetadataEntity(self,data)
   }
 
 
-  _virus_monitoring?: VirusMonitoringEntity
-
-  // Idiomatic facade: `client.virus_monitoring.list()` / `client.virus_monitoring.load({ id })`.
-  get virus_monitoring(): VirusMonitoringEntity {
-    return (this._virus_monitoring ??= new VirusMonitoringEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.virus_monitoring` instead. */
+  // Entity access: `client.VirusMonitoring().list()` / `client.VirusMonitoring().load({ id })`.
   VirusMonitoring(data?: any) {
     const self = this
     return new VirusMonitoringEntity(self,data)

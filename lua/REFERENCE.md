@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## DatasetMetadataEntity
 
 ```lua
-local dataset_metadata = client:dataset_metadata(nil)
+local dataset_metadata = client:DatasetMetadata(nil)
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ local dataset_metadata = client:dataset_metadata(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:dataset_metadata():list()
+local results, err = client:DatasetMetadata():list()
 ```
 
 ### Common Methods
@@ -142,7 +142,7 @@ Return the entity name.
 ## VirusMonitoringEntity
 
 ```lua
-local virus_monitoring = client:virus_monitoring(nil)
+local virus_monitoring = client:VirusMonitoring(nil)
 ```
 
 ### Fields
@@ -161,7 +161,7 @@ local virus_monitoring = client:virus_monitoring(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:virus_monitoring():list()
+local results, err = client:VirusMonitoring():list()
 ```
 
 ### Common Methods

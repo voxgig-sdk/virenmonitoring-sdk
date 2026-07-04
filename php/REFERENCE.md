@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## DatasetMetadataEntity
 
 ```php
-$dataset_metadata = $client->dataset_metadata();
+$dataset_metadata = $client->DatasetMetadata();
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ $dataset_metadata = $client->dataset_metadata();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->dataset_metadata()->list([]);
+$results = $client->DatasetMetadata()->list([]);
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## VirusMonitoringEntity
 
 ```php
-$virus_monitoring = $client->virus_monitoring();
+$virus_monitoring = $client->VirusMonitoring();
 ```
 
 ### Fields
@@ -163,7 +163,7 @@ $virus_monitoring = $client->virus_monitoring();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->virus_monitoring()->list([]);
+$results = $client->VirusMonitoring()->list([]);
 ```
 
 ### Common Methods

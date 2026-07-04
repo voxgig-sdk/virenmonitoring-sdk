@@ -121,7 +121,7 @@ Alias for `VirenmonitoringSDK.test()`.
 ## DatasetMetadataEntity
 
 ```ts
-const dataset_metadata = client.dataset_metadata
+const dataset_metadata = client.DatasetMetadata()
 ```
 
 ### Fields
@@ -140,7 +140,7 @@ const dataset_metadata = client.dataset_metadata
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.dataset_metadata.list()
+const results = await client.DatasetMetadata().list()
 ```
 
 ### Common Methods
@@ -174,7 +174,7 @@ Return a copy of the entity options.
 ## VirusMonitoringEntity
 
 ```ts
-const virus_monitoring = client.virus_monitoring
+const virus_monitoring = client.VirusMonitoring()
 ```
 
 ### Fields
@@ -193,7 +193,7 @@ const virus_monitoring = client.virus_monitoring
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.virus_monitoring.list()
+const results = await client.VirusMonitoring().list()
 ```
 
 ### Common Methods

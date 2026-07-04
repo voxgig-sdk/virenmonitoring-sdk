@@ -233,10 +233,10 @@ class VirenmonitoringSDK
 
     private $_dataset_metadata = null;
 
-    // Idiomatic facade: $client->dataset_metadata()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias DatasetMetadata() (PHP method
-    // names are case-insensitive).
-    public function dataset_metadata($data = null)
+    // Canonical facade: $client->DatasetMetadata()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->dataset_metadata()
+    // resolves here too.
+    public function DatasetMetadata($data = null)
     {
         require_once __DIR__ . '/entity/dataset_metadata_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class VirenmonitoringSDK
 
     private $_virus_monitoring = null;
 
-    // Idiomatic facade: $client->virus_monitoring()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias VirusMonitoring() (PHP method
-    // names are case-insensitive).
-    public function virus_monitoring($data = null)
+    // Canonical facade: $client->VirusMonitoring()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->virus_monitoring()
+    // resolves here too.
+    public function VirusMonitoring($data = null)
     {
         require_once __DIR__ . '/entity/virus_monitoring_entity.php';
         if ($data === null) {

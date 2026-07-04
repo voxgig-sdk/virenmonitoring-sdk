@@ -220,41 +220,21 @@ class VirenmonitoringSDK:
         }
 
 
-    @property
-    def dataset_metadata(self):
-        """Idiomatic facade: client.dataset_metadata.list() / client.dataset_metadata.load({"id": ...})."""
-        from entity.dataset_metadata_entity import DatasetMetadataEntity
-        cached = getattr(self, "_dataset_metadata", None)
-        if cached is None:
-            cached = DatasetMetadataEntity(self, None)
-            self._dataset_metadata = cached
-        return cached
-
-    def DatasetMetadata(self, data=None):
-        # Deprecated: use client.dataset_metadata instead.
+    def DatasetMetadata(self, data=None) -> "DatasetMetadataEntity":
+        """Entity factory: client.DatasetMetadata().list({}) / client.DatasetMetadata().load({"id": ...})."""
         from entity.dataset_metadata_entity import DatasetMetadataEntity
         return DatasetMetadataEntity(self, data)
 
 
-    @property
-    def virus_monitoring(self):
-        """Idiomatic facade: client.virus_monitoring.list() / client.virus_monitoring.load({"id": ...})."""
-        from entity.virus_monitoring_entity import VirusMonitoringEntity
-        cached = getattr(self, "_virus_monitoring", None)
-        if cached is None:
-            cached = VirusMonitoringEntity(self, None)
-            self._virus_monitoring = cached
-        return cached
-
-    def VirusMonitoring(self, data=None):
-        # Deprecated: use client.virus_monitoring instead.
+    def VirusMonitoring(self, data=None) -> "VirusMonitoringEntity":
+        """Entity factory: client.VirusMonitoring().list({}) / client.VirusMonitoring().load({"id": ...})."""
         from entity.virus_monitoring_entity import VirusMonitoringEntity
         return VirusMonitoringEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "VirenmonitoringSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class VirenmonitoringSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.dataset_metadata_entity import DatasetMetadataEntity
+    from entity.virus_monitoring_entity import VirusMonitoringEntity

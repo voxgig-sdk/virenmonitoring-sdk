@@ -4,41 +4,41 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class DatasetMetadata:
-    description: Optional[str] = None
-    label: Optional[str] = None
-    name: Optional[str] = None
-    type: Optional[str] = None
+class DatasetMetadata(TypedDict, total=False):
+    description: str
+    label: str
+    name: str
+    type: str
 
 
-@dataclass
-class DatasetMetadataListMatch:
-    description: Optional[str] = None
-    label: Optional[str] = None
-    name: Optional[str] = None
-    type: Optional[str] = None
+class DatasetMetadataListMatch(TypedDict, total=False):
+    description: str
+    label: str
+    name: str
+    type: str
 
 
-@dataclass
-class VirusMonitoring:
-    datasetid: Optional[str] = None
-    field: Optional[dict] = None
-    record_timestamp: Optional[str] = None
-    recordid: Optional[str] = None
+class VirusMonitoring(TypedDict, total=False):
+    datasetid: str
+    field: dict
+    record_timestamp: str
+    recordid: str
 
 
-@dataclass
-class VirusMonitoringListMatch:
-    datasetid: Optional[str] = None
-    field: Optional[dict] = None
-    record_timestamp: Optional[str] = None
-    recordid: Optional[str] = None
-
+class VirusMonitoringListMatch(TypedDict, total=False):
+    datasetid: str
+    field: dict
+    record_timestamp: str
+    recordid: str

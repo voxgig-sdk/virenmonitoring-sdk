@@ -26,9 +26,11 @@ import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring'
 
 const client = new VirenmonitoringSDK()
 
-// List all datasetmetadatas
-const datasetmetadatas = await client.datasetmetadata.list()
-console.log(datasetmetadatas.data)
+// List all datasetmetadatas (returns DatasetMetadata[])
+const datasetmetadatas = await client.DatasetMetadata().list()
+for (const datasetmetadata of datasetmetadatas) {
+  console.log(datasetmetadata)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,9 +86,10 @@ from virenmonitoring_sdk import VirenmonitoringSDK
 
 client = VirenmonitoringSDK()
 
-# List all datasetmetadatas
-datasetmetadatas = client.datasetmetadata.list()
-print(datasetmetadatas)
+# List all datasetmetadatas (returns a list, raises on error)
+datasetmetadatas = client.DatasetMetadata().list({})
+for datasetmetadata in datasetmetadatas:
+    print(datasetmetadata)
 ```
 
 ### PHP
@@ -97,8 +100,8 @@ require_once 'virenmonitoring_sdk.php';
 
 $client = new VirenmonitoringSDK();
 
-// List all datasetmetadatas (throws on error)
-$datasetmetadatas = $client->datasetmetadata()->list();
+// List all datasetmetadatas (returns an array; throws on error)
+$datasetmetadatas = $client->DatasetMetadata()->list();
 print_r($datasetmetadatas);
 ```
 
@@ -121,8 +124,8 @@ require_relative "Virenmonitoring_sdk"
 
 client = VirenmonitoringSDK.new
 
-# List all datasetmetadatas
-datasetmetadatas = client.datasetmetadata.list
+# List all datasetmetadatas (returns an Array; raises on error)
+datasetmetadatas = client.DatasetMetadata.list
 puts datasetmetadatas
 ```
 
@@ -134,7 +137,7 @@ local sdk = require("virenmonitoring_sdk")
 local client = sdk.new()
 
 -- List all datasetmetadatas
-local datasetmetadatas, err = client:datasetmetadata():list()
+local datasetmetadatas, err = client:DatasetMetadata():list()
 print(datasetmetadatas)
 ```
 
@@ -147,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = VirenmonitoringSDK.test()
-const result = await client.datasetmetadata.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const datasetmetadata = await client.DatasetMetadata().load({ id: 'test01' })
+// datasetmetadata is a bare DatasetMetadata populated with mock data
+console.log(datasetmetadata)
 ```
 
 ### Python
 
 ```python
 client = VirenmonitoringSDK.test()
-result = client.datasetmetadata.load({"id": "test01"})
+datasetmetadata = client.DatasetMetadata().load({"id": "test01"})
+print(datasetmetadata)
 ```
 
 ### PHP
 
 ```php
-$client = VirenmonitoringSDK::test();
-$result = $client->datasetmetadata()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = VirenmonitoringSDK::test([
+    "entity" => ["datasetmetadata" => ["test01" => ["id" => "test01"]]],
+]);
+$datasetmetadata = $client->DatasetMetadata()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -177,15 +185,18 @@ result, err := client.DatasetMetadata(nil).Load(
 ### Ruby
 
 ```ruby
-client = VirenmonitoringSDK.test
-result = client.datasetmetadata.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = VirenmonitoringSDK.test({
+  "entity" => { "datasetmetadata" => { "test01" => { "id" => "test01" } } },
+})
+datasetmetadata = client.DatasetMetadata.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:datasetmetadata():load({ id = "test01" })
+local result, err = client:DatasetMetadata():load({ id = "test01" })
 ```
 
 ## How it works
@@ -233,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

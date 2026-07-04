@@ -28,16 +28,14 @@ require_relative "Virenmonitoring_sdk"
 client = VirenmonitoringSDK.new
 ```
 
-### 2. List datasetmetadatas
+### 2. List datasetmetadata records
 
 ```ruby
 begin
-  result = client.datasetmetadata.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of DatasetMetadata records — iterate directly.
+  datasetmetadatas = client.DatasetMetadata.list
+  datasetmetadatas.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = VirenmonitoringSDK.test
+client = VirenmonitoringSDK.test({
+  "entity" => { "datasetmetadata" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.datasetmetadata.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+datasetmetadata = client.DatasetMetadata.load({ "id" => "test01" })
+puts datasetmetadata
 ```
 
 ### Use a custom fetch function
@@ -240,7 +242,7 @@ API path: `/records/1.0/search/`
 
 ### DatasetMetadata
 
-Create an instance: `const dataset_metadata = client.dataset_metadata`
+Create an instance: `dataset_metadata = client.DatasetMetadata`
 
 #### Operations
 
@@ -259,14 +261,15 @@ Create an instance: `const dataset_metadata = client.dataset_metadata`
 
 #### Example: List
 
-```ts
-const dataset_metadatas = await client.dataset_metadata.list()
+```ruby
+# list returns an Array of DatasetMetadata records (raises on error).
+dataset_metadatas = client.DatasetMetadata.list
 ```
 
 
 ### VirusMonitoring
 
-Create an instance: `const virus_monitoring = client.virus_monitoring`
+Create an instance: `virus_monitoring = client.VirusMonitoring`
 
 #### Operations
 
@@ -285,8 +288,9 @@ Create an instance: `const virus_monitoring = client.virus_monitoring`
 
 #### Example: List
 
-```ts
-const virus_monitorings = await client.virus_monitoring.list()
+```ruby
+# list returns an Array of VirusMonitoring records (raises on error).
+virus_monitorings = client.VirusMonitoring.list
 ```
 
 
@@ -361,7 +365,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-datasetmetadata = client.datasetmetadata
+datasetmetadata = client.DatasetMetadata
 datasetmetadata.load({ "id" => "example_id" })
 
 # datasetmetadata.data_get now returns the loaded datasetmetadata data

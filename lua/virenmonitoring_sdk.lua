@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:dataset_metadata():list() / client:dataset_metadata():load({ id = ... })
-function VirenmonitoringSDK:dataset_metadata(data)
+-- Idiomatic facade: client:DatasetMetadata():list() / client:DatasetMetadata():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function VirenmonitoringSDK:DatasetMetadata(data)
   local EntityMod = require("entity.dataset_metadata_entity")
   if data == nil then
     if self._dataset_metadata == nil then
@@ -256,15 +257,10 @@ function VirenmonitoringSDK:dataset_metadata(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:dataset_metadata() instead.
-function VirenmonitoringSDK:DatasetMetadata(data)
-  local EntityMod = require("entity.dataset_metadata_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:virus_monitoring():list() / client:virus_monitoring():load({ id = ... })
-function VirenmonitoringSDK:virus_monitoring(data)
+-- Idiomatic facade: client:VirusMonitoring():list() / client:VirusMonitoring():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function VirenmonitoringSDK:VirusMonitoring(data)
   local EntityMod = require("entity.virus_monitoring_entity")
   if data == nil then
     if self._virus_monitoring == nil then
@@ -272,12 +268,6 @@ function VirenmonitoringSDK:virus_monitoring(data)
     end
     return self._virus_monitoring
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:virus_monitoring() instead.
-function VirenmonitoringSDK:VirusMonitoring(data)
-  local EntityMod = require("entity.virus_monitoring_entity")
   return EntityMod.new(self, data)
 end
 

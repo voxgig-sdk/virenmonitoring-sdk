@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## DatasetMetadataEntity
 
 ```python
-dataset_metadata = client.dataset_metadata
+dataset_metadata = client.DatasetMetadata()
 ```
 
 ### Fields
@@ -103,7 +103,9 @@ dataset_metadata = client.dataset_metadata
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.dataset_metadata.list({})
+results = client.DatasetMetadata().list({})
+for dataset_metadata in results:
+    print(dataset_metadata)
 ```
 
 ### Common Methods
@@ -138,7 +140,7 @@ Return the entity name.
 ## VirusMonitoringEntity
 
 ```python
-virus_monitoring = client.virus_monitoring
+virus_monitoring = client.VirusMonitoring()
 ```
 
 ### Fields
@@ -157,7 +159,9 @@ virus_monitoring = client.virus_monitoring
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.virus_monitoring.list({})
+results = client.VirusMonitoring().list({})
+for virus_monitoring in results:
+    print(virus_monitoring)
 ```
 
 ### Common Methods

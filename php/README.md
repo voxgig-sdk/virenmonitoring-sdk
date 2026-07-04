@@ -29,18 +29,16 @@ require_once 'virenmonitoring_sdk.php';
 $client = new VirenmonitoringSDK();
 ```
 
-### 2. List datasetmetadatas
+### 2. List datasetmetadata records
 
 ```php
 try {
-    $result = $client->datasetmetadata()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of DatasetMetadata records — iterate directly.
+    $datasetmetadatas = $client->DatasetMetadata()->list();
+    foreach ($datasetmetadatas as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = VirenmonitoringSDK::test();
+$client = VirenmonitoringSDK::test([
+    "entity" => ["datasetmetadata" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->datasetmetadata()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$datasetmetadata = $client->DatasetMetadata()->load(["id" => "test01"]);
+print_r($datasetmetadata);
 ```
 
 ### Use a custom fetch function
@@ -245,7 +247,7 @@ API path: `/records/1.0/search/`
 
 ### DatasetMetadata
 
-Create an instance: `const dataset_metadata = client.dataset_metadata`
+Create an instance: `$dataset_metadata = $client->DatasetMetadata();`
 
 #### Operations
 
@@ -264,14 +266,15 @@ Create an instance: `const dataset_metadata = client.dataset_metadata`
 
 #### Example: List
 
-```ts
-const dataset_metadatas = await client.dataset_metadata.list()
+```php
+// list() returns an array of DatasetMetadata records (throws on error).
+$dataset_metadatas = $client->DatasetMetadata()->list();
 ```
 
 
 ### VirusMonitoring
 
-Create an instance: `const virus_monitoring = client.virus_monitoring`
+Create an instance: `$virus_monitoring = $client->VirusMonitoring();`
 
 #### Operations
 
@@ -290,8 +293,9 @@ Create an instance: `const virus_monitoring = client.virus_monitoring`
 
 #### Example: List
 
-```ts
-const virus_monitorings = await client.virus_monitoring.list()
+```php
+// list() returns an array of VirusMonitoring records (throws on error).
+$virus_monitorings = $client->VirusMonitoring()->list();
 ```
 
 
@@ -366,7 +370,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$datasetmetadata = $client->datasetmetadata();
+$datasetmetadata = $client->DatasetMetadata();
 $datasetmetadata->load(["id" => "example_id"]);
 
 // $datasetmetadata->dataGet() now returns the loaded datasetmetadata data

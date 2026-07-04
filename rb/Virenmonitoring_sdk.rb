@@ -208,26 +208,14 @@ class VirenmonitoringSDK
   end
 
 
-  # Idiomatic facade: client.dataset_metadata.list / client.dataset_metadata.load({ "id" => ... })
-  def dataset_metadata
-    require_relative 'entity/dataset_metadata_entity'
-    @dataset_metadata ||= DatasetMetadataEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.dataset_metadata instead.
+  # Canonical facade: client.DatasetMetadata.list / client.DatasetMetadata.load({ "id" => ... })
   def DatasetMetadata(data = nil)
     require_relative 'entity/dataset_metadata_entity'
     DatasetMetadataEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.virus_monitoring.list / client.virus_monitoring.load({ "id" => ... })
-  def virus_monitoring
-    require_relative 'entity/virus_monitoring_entity'
-    @virus_monitoring ||= VirusMonitoringEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.virus_monitoring instead.
+  # Canonical facade: client.VirusMonitoring.list / client.VirusMonitoring.load({ "id" => ... })
   def VirusMonitoring(data = nil)
     require_relative 'entity/virus_monitoring_entity'
     VirusMonitoringEntity.new(self, data)

@@ -31,14 +31,16 @@ from virenmonitoring_sdk import VirenmonitoringSDK
 client = VirenmonitoringSDK()
 ```
 
-### 2. List datasetmetadatas
+### 2. List datasetmetadata records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.datasetmetadata.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    datasetmetadatas = client.DatasetMetadata().list({})
+    for datasetmetadata in datasetmetadatas:
+        print(datasetmetadata)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = VirenmonitoringSDK.test()
 
-result = client.datasetmetadata.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+datasetmetadata = client.DatasetMetadata().load({"id": "test01"})
+# datasetmetadata contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -237,7 +240,7 @@ API path: `/records/1.0/search/`
 
 ### DatasetMetadata
 
-Create an instance: `const dataset_metadata = client.dataset_metadata`
+Create an instance: `dataset_metadata = client.DatasetMetadata()`
 
 #### Operations
 
@@ -256,14 +259,14 @@ Create an instance: `const dataset_metadata = client.dataset_metadata`
 
 #### Example: List
 
-```ts
-const dataset_metadatas = await client.dataset_metadata.list()
+```python
+dataset_metadatas = client.DatasetMetadata().list({})
 ```
 
 
 ### VirusMonitoring
 
-Create an instance: `const virus_monitoring = client.virus_monitoring`
+Create an instance: `virus_monitoring = client.VirusMonitoring()`
 
 #### Operations
 
@@ -282,8 +285,8 @@ Create an instance: `const virus_monitoring = client.virus_monitoring`
 
 #### Example: List
 
-```ts
-const virus_monitorings = await client.virus_monitoring.list()
+```python
+virus_monitorings = client.VirusMonitoring().list({})
 ```
 
 
@@ -357,7 +360,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-datasetmetadata = client.datasetmetadata
+datasetmetadata = client.DatasetMetadata()
 datasetmetadata.load({"id": "example_id"})
 
 # datasetmetadata.data_get() now returns the loaded datasetmetadata data

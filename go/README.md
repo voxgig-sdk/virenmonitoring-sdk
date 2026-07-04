@@ -30,37 +30,33 @@ go mod edit -replace github.com/voxgig-sdk/virenmonitoring-sdk/go=../virenmonito
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/virenmonitoring-sdk/go"
-    "github.com/voxgig-sdk/virenmonitoring-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 2. List datasetmetadatas
-
-```go
-    result, err := client.DatasetMetadata(nil).List(nil, nil)
+    // List datasetmetadata records — the value is the array of records itself.
+    datasetmetadatas, err := client.DatasetMetadata(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-
-    rm := core.ToMapAny(result)
-    if rm["ok"] == true {
-        for _, item := range rm["data"].([]any) {
-            p := core.ToMapAny(item)
-            fmt.Println(p["id"], p["name"])
-        }
+    for _, item := range datasetmetadatas.([]any) {
+        fmt.Println(item)
     }
+}
 ```
 
 
@@ -110,10 +106,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.DatasetMetadata(nil).Load(
+datasetmetadata, err := client.DatasetMetadata(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(datasetmetadata) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -211,17 +210,24 @@ All entities implement the `VirenmonitoringEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    datasetmetadata, err := client.DatasetMetadata(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // datasetmetadata is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -278,7 +284,11 @@ Create an instance: `dataset_metadata := client.DatasetMetadata(nil)`
 #### Example: List
 
 ```go
-results, err := client.DatasetMetadata(nil).List(nil, nil)
+dataset_metadatas, err := client.DatasetMetadata(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(dataset_metadatas) // the array of records
 ```
 
 
@@ -304,7 +314,11 @@ Create an instance: `virus_monitoring := client.VirusMonitoring(nil)`
 #### Example: List
 
 ```go
-results, err := client.VirusMonitoring(nil).List(nil, nil)
+virus_monitorings, err := client.VirusMonitoring(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(virus_monitorings) // the array of records
 ```
 
 
