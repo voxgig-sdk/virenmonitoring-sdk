@@ -12,7 +12,12 @@ export interface DatasetMetadata {
   type?: string
 }
 
-export type DatasetMetadataListMatch = Partial<DatasetMetadata>
+export interface DatasetMetadataListMatch {
+  description?: string
+  label?: string
+  name?: string
+  type?: string
+}
 
 export interface VirusMonitoring {
   datasetid?: string
@@ -21,5 +26,10 @@ export interface VirusMonitoring {
   recordid?: string
 }
 
-export type VirusMonitoringListMatch = Partial<VirusMonitoring>
+export interface VirusMonitoringListMatch {
+  datasetid?: string
+  field?: Record<string, any>
+  record_timestamp?: string
+  recordid?: string
+}
 

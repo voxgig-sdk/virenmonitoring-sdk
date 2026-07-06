@@ -29,7 +29,7 @@ DatasetMetadata = Struct.new(
   keyword_init: true
 )
 
-# Match filter for DatasetMetadata#list (any subset of DatasetMetadata fields).
+# Request payload for DatasetMetadata#list.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -71,7 +71,7 @@ VirusMonitoring = Struct.new(
   keyword_init: true
 )
 
-# Match filter for VirusMonitoring#list (any subset of VirusMonitoring fields).
+# Request payload for VirusMonitoring#list.
 #
 # @!attribute [rw] datasetid
 #   @return [String, nil]

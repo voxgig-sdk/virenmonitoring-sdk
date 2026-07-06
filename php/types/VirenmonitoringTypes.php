@@ -21,7 +21,7 @@ class DatasetMetadata
     public ?string $type = null;
 }
 
-/** Match filter for DatasetMetadata#list (any subset of DatasetMetadata fields). */
+/** Request payload for DatasetMetadata#list. */
 class DatasetMetadataListMatch
 {
     public ?string $description = null;
@@ -39,7 +39,7 @@ class VirusMonitoring
     public ?string $recordid = null;
 }
 
-/** Match filter for VirusMonitoring#list (any subset of VirusMonitoring fields). */
+/** Request payload for VirusMonitoring#list. */
 class VirusMonitoringListMatch
 {
     public ?string $datasetid = null;

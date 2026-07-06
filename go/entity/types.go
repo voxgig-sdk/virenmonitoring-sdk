@@ -16,8 +16,7 @@ type DatasetMetadata struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// DatasetMetadataListMatch mirrors the dataset_metadata fields as an all-optional match
-// filter (Go analog of Partial<DatasetMetadata>).
+// DatasetMetadataListMatch is the typed request payload for DatasetMetadata.ListTyped.
 type DatasetMetadataListMatch struct {
 	Description *string `json:"description,omitempty"`
 	Label *string `json:"label,omitempty"`
@@ -33,8 +32,7 @@ type VirusMonitoring struct {
 	Recordid *string `json:"recordid,omitempty"`
 }
 
-// VirusMonitoringListMatch mirrors the virus_monitoring fields as an all-optional match
-// filter (Go analog of Partial<VirusMonitoring>).
+// VirusMonitoringListMatch is the typed request payload for VirusMonitoring.ListTyped.
 type VirusMonitoringListMatch struct {
 	Datasetid *string `json:"datasetid,omitempty"`
 	Field *map[string]any `json:"field,omitempty"`

@@ -221,13 +221,13 @@ class VirenmonitoringSDK:
 
 
     def DatasetMetadata(self, data=None) -> "DatasetMetadataEntity":
-        """Entity factory: client.DatasetMetadata().list({}) / client.DatasetMetadata().load({"id": ...})."""
+        """Entity factory: client.DatasetMetadata().list() / client.DatasetMetadata().load({"id": ...})."""
         from entity.dataset_metadata_entity import DatasetMetadataEntity
         return DatasetMetadataEntity(self, data)
 
 
     def VirusMonitoring(self, data=None) -> "VirusMonitoringEntity":
-        """Entity factory: client.VirusMonitoring().list({}) / client.VirusMonitoring().load({"id": ...})."""
+        """Entity factory: client.VirusMonitoring().list() / client.VirusMonitoring().load({"id": ...})."""
         from entity.virus_monitoring_entity import VirusMonitoringEntity
         return VirusMonitoringEntity(self, data)
 

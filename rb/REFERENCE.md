@@ -8,7 +8,7 @@ Complete API reference for the Virenmonitoring Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'virenmonitoring_sdk'
+require_relative 'Virenmonitoring_sdk'
 
 client = VirenmonitoringSDK.new(options)
 ```
@@ -97,19 +97,19 @@ dataset_metadata = client.DatasetMetadata
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `description` | `String` | No |  |
+| `label` | `String` | No |  |
+| `name` | `String` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.DatasetMetadata.list(nil)
+results = client.DatasetMetadata.list
 ```
 
 ### Common Methods
@@ -152,19 +152,19 @@ virus_monitoring = client.VirusMonitoring
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datasetid` | ``$STRING`` | No |  |
-| `field` | ``$OBJECT`` | No |  |
-| `record_timestamp` | ``$STRING`` | No |  |
-| `recordid` | ``$STRING`` | No |  |
+| `datasetid` | `String` | No |  |
+| `field` | `Hash` | No |  |
+| `record_timestamp` | `String` | No |  |
+| `recordid` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.VirusMonitoring.list(nil)
+results = client.VirusMonitoring.list
 ```
 
 ### Common Methods

@@ -91,19 +91,19 @@ dataset_metadata = client.DatasetMetadata()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `description` | `str` | No |  |
+| `label` | `str` | No |  |
+| `name` | `str` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.DatasetMetadata().list({})
+results = client.DatasetMetadata().list()
 for dataset_metadata in results:
     print(dataset_metadata)
 ```
@@ -147,19 +147,19 @@ virus_monitoring = client.VirusMonitoring()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datasetid` | ``$STRING`` | No |  |
-| `field` | ``$OBJECT`` | No |  |
-| `record_timestamp` | ``$STRING`` | No |  |
-| `recordid` | ``$STRING`` | No |  |
+| `datasetid` | `str` | No |  |
+| `field` | `dict` | No |  |
+| `record_timestamp` | `str` | No |  |
+| `recordid` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.VirusMonitoring().list({})
+results = client.VirusMonitoring().list()
 for virus_monitoring in results:
     print(virus_monitoring)
 ```
