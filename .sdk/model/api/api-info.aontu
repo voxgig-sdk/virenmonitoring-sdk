@@ -20,9 +20,9 @@ main: {
           url: "https://data.bs.ch/api"
         }
       ]
+      summary: "Provides data on RNA copies of specified viruses in the wastewater of ARA Basel, along with corresponding case numbers."
       title: "Virenmonitoring API"
       version: "1.0.0"
+      website: "https://data.bs.ch"
     }
   }
-}
-

@@ -94,7 +94,8 @@ same parameters as `Direct()`.
 ## DatasetMetadataEntity
 
 ```go
-dataset_metadata := client.DatasetMetadata(nil)
+datasetMetadata := client.DatasetMetadata(nil)
+fmt.Println(datasetMetadata.GetName()) // "dataset_metadata"
 ```
 
 ### Fields
@@ -114,6 +115,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.DatasetMetadata(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -143,7 +148,8 @@ Return the entity name.
 ## VirusMonitoringEntity
 
 ```go
-virus_monitoring := client.VirusMonitoring(nil)
+virusMonitoring := client.VirusMonitoring(nil)
+fmt.Println(virusMonitoring.GetName()) // "virus_monitoring"
 ```
 
 ### Fields
@@ -163,6 +169,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.VirusMonitoring(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

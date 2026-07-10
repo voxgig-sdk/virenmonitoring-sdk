@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List datasetmetadata records — the value is the array of records itself.
-    datasetmetadatas, err := client.DatasetMetadata(nil).List(nil, nil)
+    // List datasetMetadata records — the value is the array of records itself.
+    datasetMetadatas, err := client.DatasetMetadata(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range datasetmetadatas.([]any) {
+    for _, item := range datasetMetadatas.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-datasetmetadata, err := client.DatasetMetadata(nil).List(
+datasetMetadata, err := client.DatasetMetadata(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(datasetmetadata) // the returned mock data
+fmt.Println(datasetMetadata) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -248,9 +248,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    datasetmetadata, err := client.DatasetMetadata(nil).List(map[string]any{/* fields */}, nil)
+    datasetMetadata, err := client.DatasetMetadata(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // datasetmetadata is the returned record
+    // datasetMetadata is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -290,7 +290,7 @@ API path: `/records/1.0/search/`
 
 ### DatasetMetadata
 
-Create an instance: `dataset_metadata := client.DatasetMetadata(nil)`
+Create an instance: `datasetMetadata := client.DatasetMetadata(nil)`
 
 #### Operations
 
@@ -310,17 +310,17 @@ Create an instance: `dataset_metadata := client.DatasetMetadata(nil)`
 #### Example: List
 
 ```go
-dataset_metadatas, err := client.DatasetMetadata(nil).List(nil, nil)
+datasetMetadatas, err := client.DatasetMetadata(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(dataset_metadatas) // the array of records
+fmt.Println(datasetMetadatas) // the array of records
 ```
 
 
 ### VirusMonitoring
 
-Create an instance: `virus_monitoring := client.VirusMonitoring(nil)`
+Create an instance: `virusMonitoring := client.VirusMonitoring(nil)`
 
 #### Operations
 
@@ -340,11 +340,11 @@ Create an instance: `virus_monitoring := client.VirusMonitoring(nil)`
 #### Example: List
 
 ```go
-virus_monitorings, err := client.VirusMonitoring(nil).List(nil, nil)
+virusMonitorings, err := client.VirusMonitoring(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(virus_monitorings) // the array of records
+fmt.Println(virusMonitorings) // the array of records
 ```
 
 

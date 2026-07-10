@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -399,14 +396,17 @@
           "name": "Open Data",
           "url": "https://data.bs.ch"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://data.bs.ch/api"
           }
         ],
+        "summary": "Provides data on RNA copies of specified viruses in the wastewater of ARA Basel, along with corresponding case numbers.",
         "title": "Virenmonitoring API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://data.bs.ch"
       },
       "option": {},
       "target": {
@@ -459,6 +459,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -509,6 +512,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
