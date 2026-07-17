@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Virenmonitoring SDK exists test
 
 local sdk = require("virenmonitoring_sdk")
 
