@@ -153,7 +153,7 @@ virus_monitoring = client.VirusMonitoring
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `datasetid` | `String` | No |  |
-| `field` | `Hash` | No |  |
+| `fields` | `Hash` | No |  |
 | `record_timestamp` | `String` | No |  |
 | `recordid` | `String` | No |  |
 

@@ -152,7 +152,7 @@ $virus_monitoring = $client->VirusMonitoring();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `datasetid` | `string` | No |  |
-| `field` | `array` | No |  |
+| `fields` | `array` | No |  |
 | `record_timestamp` | `string` | No |  |
 | `recordid` | `string` | No |  |
 

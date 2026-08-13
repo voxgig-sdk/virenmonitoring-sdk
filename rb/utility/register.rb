@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ VirenmonitoringUtility.registrar = ->(u) {
   u.prepare_params = VirenmonitoringUtilities::PrepareParams
   u.prepare_path = VirenmonitoringUtilities::PreparePath
   u.prepare_query = VirenmonitoringUtilities::PrepareQuery
+  u.graphql_body = VirenmonitoringUtilities::GraphqlBody
+  u.graphql_errors = VirenmonitoringUtilities::GraphqlErrors
   u.result_basic = VirenmonitoringUtilities::ResultBasic
   u.result_body = VirenmonitoringUtilities::ResultBody
   u.result_headers = VirenmonitoringUtilities::ResultHeaders

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import VirenmonitoringControl
-from core.error import VirenmonitoringError
-from core.result import VirenmonitoringResult
-from core.spec import VirenmonitoringSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import VirenmonitoringControl
+from projectname_sdk.core.error import VirenmonitoringError
+from projectname_sdk.core.result import VirenmonitoringResult
+from projectname_sdk.core.spec import VirenmonitoringSpec
 
 
 # True when this SDK was generated with the named feature.

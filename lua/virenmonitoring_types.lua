@@ -20,13 +20,13 @@
 
 ---@class VirusMonitoring
 ---@field datasetid? string
----@field field? table
+---@field fields? table
 ---@field record_timestamp? string
 ---@field recordid? string
 
 ---@class VirusMonitoringListMatch
 ---@field datasetid? string
----@field field? table
+---@field fields? table
 ---@field record_timestamp? string
 ---@field recordid? string
 

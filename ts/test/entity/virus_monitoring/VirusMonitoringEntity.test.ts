@@ -63,7 +63,7 @@ describe('VirusMonitoringEntity', async () => {
     const virus_monitoring_ref01_ent = client.VirusMonitoring()
     const virus_monitoring_ref01_match: any = {}
 
-    const virus_monitoring_ref01_list = await virus_monitoring_ref01_ent.list(virus_monitoring_ref01_match)
+    const virus_monitoring_ref01_list = (await virus_monitoring_ref01_ent.list(virus_monitoring_ref01_match)).map((e: any) => e.data())
 
 
   })

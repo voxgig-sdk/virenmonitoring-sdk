@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Virenmonitoring SDK exists test
 
 import pytest
 from virenmonitoring_sdk import VirenmonitoringSDK

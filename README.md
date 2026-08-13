@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = VirenmonitoringSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = VirenmonitoringSDK.test({
+  entity: {
+    dataset_metadata: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const datasetmetadatas = await client.DatasetMetadata().list()
-// datasetmetadatas is an array of bare DatasetMetadata records populated with mock data
+// datasetmetadatas is an array of DatasetMetadata entities, populated with mock data
+// — call datasetmetadatas[0].data() for the record itself
 console.log(datasetmetadatas)
 ```
 
@@ -110,7 +119,7 @@ import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring'
 
 const client = new VirenmonitoringSDK()
 
-// List all datasetmetadatas (returns DatasetMetadata[])
+// List all datasetmetadatas (returns DatasetMetadataEntity[] — .data() for the record)
 const datasetmetadatas = await client.DatasetMetadata().list()
 for (const datasetmetadata of datasetmetadatas) {
   console.log(datasetmetadata)
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://data.bs.ch](https://data.bs.ch)
 

@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ VirenmonitoringUtility::setRegistrar(function (VirenmonitoringUtility $u): void 
     $u->prepare_params = [VirenmonitoringPrepareParams::class, 'call'];
     $u->prepare_path = [VirenmonitoringPreparePath::class, 'call'];
     $u->prepare_query = [VirenmonitoringPrepareQuery::class, 'call'];
+    $u->graphql_body = [VirenmonitoringGraphql::class, 'body'];
+    $u->graphql_errors = [VirenmonitoringGraphql::class, 'errors'];
     $u->result_basic = [VirenmonitoringResultBasic::class, 'call'];
     $u->result_body = [VirenmonitoringResultBody::class, 'call'];
     $u->result_headers = [VirenmonitoringResultHeaders::class, 'call'];

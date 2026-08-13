@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Virenmonitoring',
   }
 
 
@@ -107,6 +107,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/datasets/1.0/100304/",
               "parts": [
@@ -144,7 +145,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "field",
+          "name": "fields",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 1
@@ -244,6 +245,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/records/1.0/search/",
               "parts": [

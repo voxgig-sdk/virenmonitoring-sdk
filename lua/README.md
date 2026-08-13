@@ -219,9 +219,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local dataset_metadata, err = client:DatasetMetadata():load()
+    local dataset_metadata, err = client:DatasetMetadata():list()
     if err then error(err) end
-    -- dataset_metadata is the loaded record
+    -- dataset_metadata is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -246,7 +246,7 @@ API path: `/datasets/1.0/100304/`
 | Field | Description |
 | --- | --- |
 | `datasetid` |  |
-| `field` |  |
+| `fields` |  |
 | `record_timestamp` |  |
 | `recordid` |  |
 
@@ -300,7 +300,7 @@ Create an instance: `local virus_monitoring = client:VirusMonitoring(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `datasetid` | `string` |  |
-| `field` | `table` |  |
+| `fields` | `table` |  |
 | `record_timestamp` | `string` |  |
 | `recordid` | `string` |  |
 

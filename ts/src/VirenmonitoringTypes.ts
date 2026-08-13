@@ -21,14 +21,14 @@ export interface DatasetMetadataListMatch {
 
 export interface VirusMonitoring {
   datasetid?: string
-  field?: Record<string, any>
+  fields?: Record<string, any>
   record_timestamp?: string
   recordid?: string
 }
 
 export interface VirusMonitoringListMatch {
   datasetid?: string
-  field?: Record<string, any>
+  fields?: Record<string, any>
   record_timestamp?: string
   recordid?: string
 }

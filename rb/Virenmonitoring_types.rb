@@ -55,7 +55,7 @@ DatasetMetadataListMatch = Struct.new(
 # @!attribute [rw] datasetid
 #   @return [String, nil]
 #
-# @!attribute [rw] field
+# @!attribute [rw] fields
 #   @return [Hash, nil]
 #
 # @!attribute [rw] record_timestamp
@@ -65,7 +65,7 @@ DatasetMetadataListMatch = Struct.new(
 #   @return [String, nil]
 VirusMonitoring = Struct.new(
   :datasetid,
-  :field,
+  :fields,
   :record_timestamp,
   :recordid,
   keyword_init: true
@@ -76,7 +76,7 @@ VirusMonitoring = Struct.new(
 # @!attribute [rw] datasetid
 #   @return [String, nil]
 #
-# @!attribute [rw] field
+# @!attribute [rw] fields
 #   @return [Hash, nil]
 #
 # @!attribute [rw] record_timestamp
@@ -86,7 +86,7 @@ VirusMonitoring = Struct.new(
 #   @return [String, nil]
 VirusMonitoringListMatch = Struct.new(
   :datasetid,
-  :field,
+  :fields,
   :record_timestamp,
   :recordid,
   keyword_init: true

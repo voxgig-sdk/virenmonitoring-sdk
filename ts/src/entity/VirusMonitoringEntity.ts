@@ -37,7 +37,7 @@ class VirusMonitoringEntity extends VirenmonitoringEntityBase<VirusMonitoring> {
 
 
 
-  async list(this: any, reqmatch?: VirusMonitoringListMatch, ctrl?: Control): Promise<VirusMonitoring[]> {
+  async list(this: any, reqmatch?: VirusMonitoringListMatch, ctrl?: Control): Promise<VirusMonitoringEntity[]> {
 
     const utility = this._utility
 

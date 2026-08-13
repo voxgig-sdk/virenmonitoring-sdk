@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from virenmonitoring_sdk.utility.voxgig_struct import voxgig_struct as vs
 from virenmonitoring_sdk import VirenmonitoringSDK
-from core import helpers
+from virenmonitoring_sdk.core import helpers
 from test import runner
 
 

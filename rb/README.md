@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = VirenmonitoringSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 datasetmetadata = client.DatasetMetadata.list()
 puts datasetmetadata
 ```
@@ -251,7 +252,7 @@ API path: `/datasets/1.0/100304/`
 | Field | Description |
 | --- | --- |
 | `datasetid` |  |
-| `field` |  |
+| `fields` |  |
 | `record_timestamp` |  |
 | `recordid` |  |
 
@@ -306,7 +307,7 @@ Create an instance: `virus_monitoring = client.VirusMonitoring`
 | Field | Type | Description |
 | --- | --- | --- |
 | `datasetid` | `String` |  |
-| `field` | `Hash` |  |
+| `fields` | `Hash` |  |
 | `record_timestamp` | `String` |  |
 | `recordid` | `String` |  |
 

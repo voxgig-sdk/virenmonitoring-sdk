@@ -35,7 +35,9 @@ const client = new VirenmonitoringSDK()
 
 ### 2. List datasetmetadata records
 
-`list()` resolves to an array of DatasetMetadata objects — iterate it directly:
+`list()` resolves to an array of DatasetMetadata ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const datasetmetadatas = await client.DatasetMetadata().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = VirenmonitoringSDK.test()
 
 const datasetmetadata = await client.DatasetMetadata().list()
-// datasetmetadata is a bare entity populated with mock response data
+// datasetmetadata is the entity, populated with mock response data
+// — call datasetmetadata.data() for the record itself
 console.log(datasetmetadata)
 ```
 
@@ -299,7 +302,7 @@ API path: `/datasets/1.0/100304/`
 | Field | Description |
 | --- | --- |
 | `datasetid` |  |
-| `field` |  |
+| `fields` |  |
 | `record_timestamp` |  |
 | `recordid` |  |
 
@@ -353,7 +356,7 @@ Create an instance: `const virus_monitoring = client.VirusMonitoring()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `datasetid` | `string` |  |
-| `field` | `Record<string, any>` |  |
+| `fields` | `Record<string, any>` |  |
 | `record_timestamp` | `string` |  |
 | `recordid` | `string` |  |
 

@@ -76,6 +76,7 @@ module VirenmonitoringConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/datasets/1.0/100304/",
                   "parts" => [
@@ -113,7 +114,7 @@ module VirenmonitoringConfig
             },
             {
               "active" => true,
-              "name" => "field",
+              "name" => "fields",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 1,
@@ -213,6 +214,7 @@ module VirenmonitoringConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/records/1.0/search/",
                   "parts" => [

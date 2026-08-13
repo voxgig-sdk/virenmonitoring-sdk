@@ -275,7 +275,7 @@ API path: `/datasets/1.0/100304/`
 | Field | Description |
 | --- | --- |
 | `"datasetid"` |  |
-| `"field"` |  |
+| `"fields"` |  |
 | `"record_timestamp"` |  |
 | `"recordid"` |  |
 
@@ -333,7 +333,7 @@ Create an instance: `virusMonitoring := client.VirusMonitoring(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `datasetid` | `string` |  |
-| `field` | `map[string]any` |  |
+| `fields` | `map[string]any` |  |
 | `record_timestamp` | `string` |  |
 | `recordid` | `string` |  |
 

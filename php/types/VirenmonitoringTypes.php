@@ -34,7 +34,7 @@ class DatasetMetadataListMatch
 class VirusMonitoring
 {
     public ?string $datasetid = null;
-    public ?array $field = null;
+    public ?array $fields = null;
     public ?string $record_timestamp = null;
     public ?string $recordid = null;
 }
@@ -43,7 +43,7 @@ class VirusMonitoring
 class VirusMonitoringListMatch
 {
     public ?string $datasetid = null;
-    public ?array $field = null;
+    public ?array $fields = null;
     public ?string $record_timestamp = null;
     public ?string $recordid = null;
 }

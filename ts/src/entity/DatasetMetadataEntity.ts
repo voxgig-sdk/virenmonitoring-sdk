@@ -37,7 +37,7 @@ class DatasetMetadataEntity extends VirenmonitoringEntityBase<DatasetMetadata> {
 
 
 
-  async list(this: any, reqmatch?: DatasetMetadataListMatch, ctrl?: Control): Promise<DatasetMetadata[]> {
+  async list(this: any, reqmatch?: DatasetMetadataListMatch, ctrl?: Control): Promise<DatasetMetadataEntity[]> {
 
     const utility = this._utility
 

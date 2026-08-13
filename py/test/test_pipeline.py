@@ -16,11 +16,11 @@
 import pytest
 
 from virenmonitoring_sdk import VirenmonitoringSDK
-from core.error import VirenmonitoringError
-from core.result import VirenmonitoringResult
-from core.response import VirenmonitoringResponse
-from core.spec import VirenmonitoringSpec
-from feature.base_feature import VirenmonitoringBaseFeature
+from virenmonitoring_sdk.core.error import VirenmonitoringError
+from virenmonitoring_sdk.core.result import VirenmonitoringResult
+from virenmonitoring_sdk.core.response import VirenmonitoringResponse
+from virenmonitoring_sdk.core.spec import VirenmonitoringSpec
+from virenmonitoring_sdk.feature.base_feature import VirenmonitoringBaseFeature
 
 
 def _client():

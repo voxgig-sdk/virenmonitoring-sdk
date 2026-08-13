@@ -63,7 +63,7 @@ describe('DatasetMetadataEntity', async () => {
     const dataset_metadata_ref01_ent = client.DatasetMetadata()
     const dataset_metadata_ref01_match: any = {}
 
-    const dataset_metadata_ref01_list = await dataset_metadata_ref01_ent.list(dataset_metadata_ref01_match)
+    const dataset_metadata_ref01_list = (await dataset_metadata_ref01_ent.list(dataset_metadata_ref01_match)).map((e: any) => e.data())
 
 
   })

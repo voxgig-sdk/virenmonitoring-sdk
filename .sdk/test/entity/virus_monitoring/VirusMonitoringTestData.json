@@ -3,19 +3,19 @@
     "virus_monitoring": {
       "VIRUS_MONITORING00": {
         "datasetid": "s28",
-        "field": {},
+        "fields": {},
         "record_timestamp": "s2a",
         "recordid": "s2b"
       },
       "VIRUS_MONITORING01": {
         "datasetid": "s50",
-        "field": {},
+        "fields": {},
         "record_timestamp": "s52",
         "recordid": "s53"
       },
       "VIRUS_MONITORING02": {
         "datasetid": "s78",
-        "field": {},
+        "fields": {},
         "record_timestamp": "s7a",
         "recordid": "s7b"
       }
@@ -25,7 +25,7 @@
     "virus_monitoring": {
       "virus_monitoring_ref01": {
         "datasetid": "sa0",
-        "field": {},
+        "fields": {},
         "record_timestamp": "sa2",
         "recordid": "sa3"
       }

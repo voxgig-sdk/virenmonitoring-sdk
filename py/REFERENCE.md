@@ -148,7 +148,7 @@ virus_monitoring = client.VirusMonitoring()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `datasetid` | `str` | No |  |
-| `field` | `dict` | No |  |
+| `fields` | `dict` | No |  |
 | `record_timestamp` | `str` | No |  |
 | `recordid` | `str` | No |  |
 
