@@ -28,7 +28,7 @@ class VirenmonitoringSDK
     utility = VirenmonitoringUtility.new
     @_utility = utility
 
-    config = VirenmonitoringConfig.make_config
+    config = VirenmonitoringConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

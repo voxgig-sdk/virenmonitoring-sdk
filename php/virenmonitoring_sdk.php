@@ -40,7 +40,7 @@ class VirenmonitoringSDK
         $utility = new VirenmonitoringUtility();
         $this->_utility = $utility;
 
-        $config = VirenmonitoringConfig::make_config();
+        $config = VirenmonitoringConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
