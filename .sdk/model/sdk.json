@@ -36,24 +36,28 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Field description",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "label",
               "req": false,
+              "short": "Field label",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Field name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Field data type",
               "type": "`$STRING`"
             }
           ],
@@ -113,6 +117,7 @@
               "active": true,
               "name": "datasetid",
               "req": false,
+              "short": "Dataset identifier",
               "type": "`$STRING`"
             },
             {
@@ -125,12 +130,14 @@
               "active": true,
               "name": "record_timestamp",
               "req": false,
+              "short": "Timestamp when the record was created/updated",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "recordid",
               "req": false,
+              "short": "Unique record identifier",
               "type": "`$STRING`"
             }
           ],

@@ -248,10 +248,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `label` |  |
-| `name` |  |
-| `type` |  |
+| `description` | Field description |
+| `label` | Field label |
+| `name` | Field name |
+| `type` | Field data type |
 
 Operations: List.
 
@@ -261,10 +261,10 @@ API path: `/datasets/1.0/100304/`
 
 | Field | Description |
 | --- | --- |
-| `datasetid` |  |
+| `datasetid` | Dataset identifier |
 | `fields` |  |
-| `record_timestamp` |  |
-| `recordid` |  |
+| `record_timestamp` | Timestamp when the record was created/updated |
+| `recordid` | Unique record identifier |
 
 Operations: List.
 
@@ -289,10 +289,10 @@ Create an instance: `$dataset_metadata = $client->DatasetMetadata();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `label` | `string` |  |
-| `name` | `string` |  |
-| `type` | `string` |  |
+| `description` | `string` | Field description |
+| `label` | `string` | Field label |
+| `name` | `string` | Field name |
+| `type` | `string` | Field data type |
 
 #### Example: List
 
@@ -316,10 +316,10 @@ Create an instance: `$virus_monitoring = $client->VirusMonitoring();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `datasetid` | `string` |  |
+| `datasetid` | `string` | Dataset identifier |
 | `fields` | `array` |  |
-| `record_timestamp` | `string` |  |
-| `recordid` | `string` |  |
+| `record_timestamp` | `string` | Timestamp when the record was created/updated |
+| `recordid` | `string` | Unique record identifier |
 
 #### Example: List
 

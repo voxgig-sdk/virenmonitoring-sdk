@@ -244,10 +244,10 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `label` |  |
-| `name` |  |
-| `type` |  |
+| `description` | Field description |
+| `label` | Field label |
+| `name` | Field name |
+| `type` | Field data type |
 
 Operations: List.
 
@@ -257,10 +257,10 @@ API path: `/datasets/1.0/100304/`
 
 | Field | Description |
 | --- | --- |
-| `datasetid` |  |
+| `datasetid` | Dataset identifier |
 | `fields` |  |
-| `record_timestamp` |  |
-| `recordid` |  |
+| `record_timestamp` | Timestamp when the record was created/updated |
+| `recordid` | Unique record identifier |
 
 Operations: List.
 
@@ -285,10 +285,10 @@ Create an instance: `dataset_metadata = client.DatasetMetadata()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `label` | `str` |  |
-| `name` | `str` |  |
-| `type` | `str` |  |
+| `description` | `str` | Field description |
+| `label` | `str` | Field label |
+| `name` | `str` | Field name |
+| `type` | `str` | Field data type |
 
 #### Example: List
 
@@ -311,10 +311,10 @@ Create an instance: `virus_monitoring = client.VirusMonitoring()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `datasetid` | `str` |  |
+| `datasetid` | `str` | Dataset identifier |
 | `fields` | `dict` |  |
-| `record_timestamp` | `str` |  |
-| `recordid` | `str` |  |
+| `record_timestamp` | `str` | Timestamp when the record was created/updated |
+| `recordid` | `str` | Unique record identifier |
 
 #### Example: List
 

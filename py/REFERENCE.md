@@ -91,10 +91,10 @@ dataset_metadata = client.DatasetMetadata()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `label` | `str` | No |  |
-| `name` | `str` | No |  |
-| `type` | `str` | No |  |
+| `description` | `str` | No | Field description |
+| `label` | `str` | No | Field label |
+| `name` | `str` | No | Field name |
+| `type` | `str` | No | Field data type |
 
 ### Operations
 
@@ -147,10 +147,10 @@ virus_monitoring = client.VirusMonitoring()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datasetid` | `str` | No |  |
+| `datasetid` | `str` | No | Dataset identifier |
 | `fields` | `dict` | No |  |
-| `record_timestamp` | `str` | No |  |
-| `recordid` | `str` | No |  |
+| `record_timestamp` | `str` | No | Timestamp when the record was created/updated |
+| `recordid` | `str` | No | Unique record identifier |
 
 ### Operations
 

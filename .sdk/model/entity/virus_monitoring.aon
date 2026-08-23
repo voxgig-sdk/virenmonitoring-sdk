@@ -8,6 +8,7 @@ main: kit: entity: virus_monitoring: {
     {
       name: "datasetid"
       req: false
+      short: "Dataset identifier"
       type: "`$STRING`"
     }
     {
@@ -18,11 +19,13 @@ main: kit: entity: virus_monitoring: {
     {
       name: "record_timestamp"
       req: false
+      short: "Timestamp when the record was created/updated"
       type: "`$STRING`"
     }
     {
       name: "recordid"
       req: false
+      short: "Unique record identifier"
       type: "`$STRING`"
     }
   ]

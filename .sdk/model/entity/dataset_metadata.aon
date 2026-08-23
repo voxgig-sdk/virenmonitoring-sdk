@@ -8,21 +8,25 @@ main: kit: entity: dataset_metadata: {
     {
       name: "description"
       req: false
+      short: "Field description"
       type: "`$STRING`"
     }
     {
       name: "label"
       req: false
+      short: "Field label"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Field name"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "Field data type"
       type: "`$STRING`"
     }
   ]

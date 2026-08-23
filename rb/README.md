@@ -238,10 +238,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `label` |  |
-| `name` |  |
-| `type` |  |
+| `description` | Field description |
+| `label` | Field label |
+| `name` | Field name |
+| `type` | Field data type |
 
 Operations: List.
 
@@ -251,10 +251,10 @@ API path: `/datasets/1.0/100304/`
 
 | Field | Description |
 | --- | --- |
-| `datasetid` |  |
+| `datasetid` | Dataset identifier |
 | `fields` |  |
-| `record_timestamp` |  |
-| `recordid` |  |
+| `record_timestamp` | Timestamp when the record was created/updated |
+| `recordid` | Unique record identifier |
 
 Operations: List.
 
@@ -279,10 +279,10 @@ Create an instance: `dataset_metadata = client.DatasetMetadata`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `String` |  |
-| `label` | `String` |  |
-| `name` | `String` |  |
-| `type` | `String` |  |
+| `description` | `String` | Field description |
+| `label` | `String` | Field label |
+| `name` | `String` | Field name |
+| `type` | `String` | Field data type |
 
 #### Example: List
 
@@ -306,10 +306,10 @@ Create an instance: `virus_monitoring = client.VirusMonitoring`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `datasetid` | `String` |  |
+| `datasetid` | `String` | Dataset identifier |
 | `fields` | `Hash` |  |
-| `record_timestamp` | `String` |  |
-| `recordid` | `String` |  |
+| `record_timestamp` | `String` | Timestamp when the record was created/updated |
+| `recordid` | `String` | Unique record identifier |
 
 #### Example: List
 

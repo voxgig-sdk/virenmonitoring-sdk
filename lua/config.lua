@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Virenmonitoring",
+      slug = "virenmonitoring",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,18 +33,22 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "description",
+            ["short"] = "Field description",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "label",
+            ["short"] = "Field label",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["short"] = "Field name",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
+            ["short"] = "Field data type",
             ["type"] = "`$STRING`",
           },
         },
@@ -92,6 +99,7 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "datasetid",
+            ["short"] = "Dataset identifier",
             ["type"] = "`$STRING`",
           },
           {
@@ -100,10 +108,12 @@ local function make_config()
           },
           {
             ["name"] = "record_timestamp",
+            ["short"] = "Timestamp when the record was created/updated",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "recordid",
+            ["short"] = "Unique record identifier",
             ["type"] = "`$STRING`",
           },
         },

@@ -6,7 +6,7 @@ The Golang SDK for the Virenmonitoring API — an entity-oriented client using s
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.DatasetMetadata(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -261,10 +261,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"label"` |  |
-| `"name"` |  |
-| `"type"` |  |
+| `"description"` | Field description |
+| `"label"` | Field label |
+| `"name"` | Field name |
+| `"type"` | Field data type |
 
 Operations: List.
 
@@ -274,10 +274,10 @@ API path: `/datasets/1.0/100304/`
 
 | Field | Description |
 | --- | --- |
-| `"datasetid"` |  |
+| `"datasetid"` | Dataset identifier |
 | `"fields"` |  |
-| `"record_timestamp"` |  |
-| `"recordid"` |  |
+| `"record_timestamp"` | Timestamp when the record was created/updated |
+| `"recordid"` | Unique record identifier |
 
 Operations: List.
 
@@ -302,10 +302,10 @@ Create an instance: `datasetMetadata := client.DatasetMetadata(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `label` | `string` |  |
-| `name` | `string` |  |
-| `type` | `string` |  |
+| `description` | `string` | Field description |
+| `label` | `string` | Field label |
+| `name` | `string` | Field name |
+| `type` | `string` | Field data type |
 
 #### Example: List
 
@@ -332,10 +332,10 @@ Create an instance: `virusMonitoring := client.VirusMonitoring(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `datasetid` | `string` |  |
+| `datasetid` | `string` | Dataset identifier |
 | `fields` | `map[string]any` |  |
-| `record_timestamp` | `string` |  |
-| `recordid` | `string` |  |
+| `record_timestamp` | `string` | Timestamp when the record was created/updated |
+| `recordid` | `string` | Unique record identifier |
 
 #### Example: List
 

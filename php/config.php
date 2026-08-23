@@ -33,6 +33,9 @@ class VirenmonitoringConfig
         return [
             "main" => [
                 "name" => "Virenmonitoring",
+                "slug" => "virenmonitoring",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,18 +59,22 @@ class VirenmonitoringConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Field description',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'label',
+              'short' => 'Field label',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'name',
+              'short' => 'Field name',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'short' => 'Field data type',
               'type' => '`$STRING`',
             ],
           ],
@@ -118,6 +125,7 @@ class VirenmonitoringConfig
           'fields' => [
             [
               'name' => 'datasetid',
+              'short' => 'Dataset identifier',
               'type' => '`$STRING`',
             ],
             [
@@ -126,10 +134,12 @@ class VirenmonitoringConfig
             ],
             [
               'name' => 'record_timestamp',
+              'short' => 'Timestamp when the record was created/updated',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'recordid',
+              'short' => 'Unique record identifier',
               'type' => '`$STRING`',
             ],
           ],

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Virenmonitoring",
+			"slug": "virenmonitoring",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,18 +37,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
+						"short": "Field description",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "label",
+						"short": "Field label",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Field name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Field data type",
 						"type": "`$STRING`",
 					},
 				},
@@ -96,6 +103,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "datasetid",
+						"short": "Dataset identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -104,10 +112,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "record_timestamp",
+						"short": "Timestamp when the record was created/updated",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "recordid",
+						"short": "Unique record identifier",
 						"type": "`$STRING`",
 					},
 				},

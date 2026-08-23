@@ -94,10 +94,10 @@ local dataset_metadata = client:DatasetMetadata(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `label` | `string` | No |  |
-| `name` | `string` | No |  |
-| `type` | `string` | No |  |
+| `description` | `string` | No | Field description |
+| `label` | `string` | No | Field label |
+| `name` | `string` | No | Field name |
+| `type` | `string` | No | Field data type |
 
 ### Operations
 
@@ -149,10 +149,10 @@ local virus_monitoring = client:VirusMonitoring(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datasetid` | `string` | No |  |
+| `datasetid` | `string` | No | Dataset identifier |
 | `fields` | `table` | No |  |
-| `record_timestamp` | `string` | No |  |
-| `recordid` | `string` | No |  |
+| `record_timestamp` | `string` | No | Timestamp when the record was created/updated |
+| `recordid` | `string` | No | Unique record identifier |
 
 ### Operations
 

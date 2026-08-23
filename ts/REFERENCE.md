@@ -128,10 +128,10 @@ const dataset_metadata = client.DatasetMetadata()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `label` | `string` | No |  |
-| `name` | `string` | No |  |
-| `type` | `string` | No |  |
+| `description` | `string` | No | Field description |
+| `label` | `string` | No | Field label |
+| `name` | `string` | No | Field name |
+| `type` | `string` | No | Field data type |
 
 ### Operations
 
@@ -181,10 +181,10 @@ const virus_monitoring = client.VirusMonitoring()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datasetid` | `string` | No |  |
+| `datasetid` | `string` | No | Dataset identifier |
 | `fields` | `Record<string, any>` | No |  |
-| `record_timestamp` | `string` | No |  |
-| `recordid` | `string` | No |  |
+| `record_timestamp` | `string` | No | Timestamp when the record was created/updated |
+| `recordid` | `string` | No | Unique record identifier |
 
 ### Operations
 

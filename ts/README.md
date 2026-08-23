@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -288,10 +288,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `label` |  |
-| `name` |  |
-| `type` |  |
+| `description` | Field description |
+| `label` | Field label |
+| `name` | Field name |
+| `type` | Field data type |
 
 Operations: list.
 
@@ -301,10 +301,10 @@ API path: `/datasets/1.0/100304/`
 
 | Field | Description |
 | --- | --- |
-| `datasetid` |  |
+| `datasetid` | Dataset identifier |
 | `fields` |  |
-| `record_timestamp` |  |
-| `recordid` |  |
+| `record_timestamp` | Timestamp when the record was created/updated |
+| `recordid` | Unique record identifier |
 
 Operations: list.
 
@@ -329,10 +329,10 @@ Create an instance: `const dataset_metadata = client.DatasetMetadata()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `label` | `string` |  |
-| `name` | `string` |  |
-| `type` | `string` |  |
+| `description` | `string` | Field description |
+| `label` | `string` | Field label |
+| `name` | `string` | Field name |
+| `type` | `string` | Field data type |
 
 #### Example: List
 
@@ -355,10 +355,10 @@ Create an instance: `const virus_monitoring = client.VirusMonitoring()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `datasetid` | `string` |  |
+| `datasetid` | `string` | Dataset identifier |
 | `fields` | `Record<string, any>` |  |
-| `record_timestamp` | `string` |  |
-| `recordid` | `string` |  |
+| `record_timestamp` | `string` | Timestamp when the record was created/updated |
+| `recordid` | `string` | Unique record identifier |
 
 #### Example: List
 

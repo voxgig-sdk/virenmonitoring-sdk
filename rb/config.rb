@@ -19,6 +19,9 @@ module VirenmonitoringConfig
     {
       "main" => {
         "name" => "Virenmonitoring",
+        "slug" => "virenmonitoring",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,18 +45,22 @@ module VirenmonitoringConfig
           "fields" => [
             {
               "name" => "description",
+              "short" => "Field description",
               "type" => "`$STRING`",
             },
             {
               "name" => "label",
+              "short" => "Field label",
               "type" => "`$STRING`",
             },
             {
               "name" => "name",
+              "short" => "Field name",
               "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "short" => "Field data type",
               "type" => "`$STRING`",
             },
           ],
@@ -104,6 +111,7 @@ module VirenmonitoringConfig
           "fields" => [
             {
               "name" => "datasetid",
+              "short" => "Dataset identifier",
               "type" => "`$STRING`",
             },
             {
@@ -112,10 +120,12 @@ module VirenmonitoringConfig
             },
             {
               "name" => "record_timestamp",
+              "short" => "Timestamp when the record was created/updated",
               "type" => "`$STRING`",
             },
             {
               "name" => "recordid",
+              "short" => "Unique record identifier",
               "type" => "`$STRING`",
             },
           ],

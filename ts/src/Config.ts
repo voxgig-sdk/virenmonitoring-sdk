@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Virenmonitoring',
+        slug: "virenmonitoring",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,18 +70,22 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Field description",
           "type": "`$STRING`"
         },
         {
           "name": "label",
+          "short": "Field label",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "Field name",
           "type": "`$STRING`"
         },
         {
           "name": "type",
+          "short": "Field data type",
           "type": "`$STRING`"
         }
       ],
@@ -121,6 +136,7 @@ class Config {
       "fields": [
         {
           "name": "datasetid",
+          "short": "Dataset identifier",
           "type": "`$STRING`"
         },
         {
@@ -129,10 +145,12 @@ class Config {
         },
         {
           "name": "record_timestamp",
+          "short": "Timestamp when the record was created/updated",
           "type": "`$STRING`"
         },
         {
           "name": "recordid",
+          "short": "Unique record identifier",
           "type": "`$STRING`"
         }
       ],

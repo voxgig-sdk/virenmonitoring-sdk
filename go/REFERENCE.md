@@ -102,10 +102,10 @@ fmt.Println(datasetMetadata.GetName()) // "dataset_metadata"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `label` | `string` | No |  |
-| `name` | `string` | No |  |
-| `type` | `string` | No |  |
+| `description` | `string` | No | Field description |
+| `label` | `string` | No | Field label |
+| `name` | `string` | No | Field name |
+| `type` | `string` | No | Field data type |
 
 ### Operations
 
@@ -156,10 +156,10 @@ fmt.Println(virusMonitoring.GetName()) // "virus_monitoring"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `datasetid` | `string` | No |  |
+| `datasetid` | `string` | No | Dataset identifier |
 | `fields` | `map[string]any` | No |  |
-| `record_timestamp` | `string` | No |  |
-| `recordid` | `string` | No |  |
+| `record_timestamp` | `string` | No | Timestamp when the record was created/updated |
+| `recordid` | `string` | No | Unique record identifier |
 
 ### Operations
 
