@@ -24,10 +24,7 @@ class DatasetMetadata
 /** Request payload for DatasetMetadata#list. */
 class DatasetMetadataListMatch
 {
-    public ?string $description = null;
-    public ?string $label = null;
-    public ?string $name = null;
-    public ?string $type = null;
+    public ?string $lang = null;
 }
 
 /** VirusMonitoring entity data model. */
@@ -42,9 +39,13 @@ class VirusMonitoring
 /** Request payload for VirusMonitoring#list. */
 class VirusMonitoringListMatch
 {
-    public ?string $datasetid = null;
-    public ?array $fields = null;
-    public ?string $record_timestamp = null;
-    public ?string $recordid = null;
+    public ?string $dataset = null;
+    public ?string $exclude = null;
+    public ?string $lang = null;
+    public ?string $q = null;
+    public ?string $refine = null;
+    public ?int $row = null;
+    public ?string $sort = null;
+    public ?int $start = null;
 }
 

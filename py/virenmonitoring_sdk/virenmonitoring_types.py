@@ -24,10 +24,7 @@ class DatasetMetadata(TypedDict, total=False):
 
 
 class DatasetMetadataListMatch(TypedDict, total=False):
-    description: str
-    label: str
-    name: str
-    type: str
+    lang: str
 
 
 class VirusMonitoring(TypedDict, total=False):
@@ -38,7 +35,11 @@ class VirusMonitoring(TypedDict, total=False):
 
 
 class VirusMonitoringListMatch(TypedDict, total=False):
-    datasetid: str
-    fields: dict
-    record_timestamp: str
-    recordid: str
+    dataset: str
+    exclude: str
+    lang: str
+    q: str
+    refine: str
+    row: int
+    sort: str
+    start: int

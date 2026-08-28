@@ -13,10 +13,7 @@ export interface DatasetMetadata {
 }
 
 export interface DatasetMetadataListMatch {
-  description?: string
-  label?: string
-  name?: string
-  type?: string
+  lang?: string
 }
 
 export interface VirusMonitoring {
@@ -27,9 +24,13 @@ export interface VirusMonitoring {
 }
 
 export interface VirusMonitoringListMatch {
-  datasetid?: string
-  fields?: Record<string, any>
-  record_timestamp?: string
-  recordid?: string
+  dataset?: string
+  exclude?: string
+  lang?: string
+  q?: string
+  refine?: string
+  row?: number
+  sort?: string
+  start?: number
 }
 

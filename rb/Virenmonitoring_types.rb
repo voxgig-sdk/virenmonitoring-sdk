@@ -31,22 +31,10 @@ DatasetMetadata = Struct.new(
 
 # Request payload for DatasetMetadata#list.
 #
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] label
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] type
+# @!attribute [rw] lang
 #   @return [String, nil]
 DatasetMetadataListMatch = Struct.new(
-  :description,
-  :label,
-  :name,
-  :type,
+  :lang,
   keyword_init: true
 )
 
@@ -73,22 +61,38 @@ VirusMonitoring = Struct.new(
 
 # Request payload for VirusMonitoring#list.
 #
-# @!attribute [rw] datasetid
+# @!attribute [rw] dataset
 #   @return [String, nil]
 #
-# @!attribute [rw] fields
-#   @return [Hash, nil]
-#
-# @!attribute [rw] record_timestamp
+# @!attribute [rw] exclude
 #   @return [String, nil]
 #
-# @!attribute [rw] recordid
+# @!attribute [rw] lang
 #   @return [String, nil]
+#
+# @!attribute [rw] q
+#   @return [String, nil]
+#
+# @!attribute [rw] refine
+#   @return [String, nil]
+#
+# @!attribute [rw] row
+#   @return [Integer, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
+#
+# @!attribute [rw] start
+#   @return [Integer, nil]
 VirusMonitoringListMatch = Struct.new(
-  :datasetid,
-  :fields,
-  :record_timestamp,
-  :recordid,
+  :dataset,
+  :exclude,
+  :lang,
+  :q,
+  :refine,
+  :row,
+  :sort,
+  :start,
   keyword_init: true
 )
 

@@ -13,10 +13,7 @@
 ---@field type? string
 
 ---@class DatasetMetadataListMatch
----@field description? string
----@field label? string
----@field name? string
----@field type? string
+---@field lang? string
 
 ---@class VirusMonitoring
 ---@field datasetid? string
@@ -25,10 +22,14 @@
 ---@field recordid? string
 
 ---@class VirusMonitoringListMatch
----@field datasetid? string
----@field fields? table
----@field record_timestamp? string
----@field recordid? string
+---@field dataset? string
+---@field exclude? string
+---@field lang? string
+---@field q? string
+---@field refine? string
+---@field row? number
+---@field sort? string
+---@field start? number
 
 local M = {}
 

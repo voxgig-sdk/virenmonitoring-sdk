@@ -22,10 +22,7 @@ type DatasetMetadata struct {
 
 // DatasetMetadataListMatch is the typed request payload for DatasetMetadata.ListTyped.
 type DatasetMetadataListMatch struct {
-	Description *string `json:"description,omitempty"`
-	Label *string `json:"label,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Lang *string `json:"lang,omitempty"`
 }
 
 // VirusMonitoring is the typed data model for the virus_monitoring entity.
@@ -38,10 +35,14 @@ type VirusMonitoring struct {
 
 // VirusMonitoringListMatch is the typed request payload for VirusMonitoring.ListTyped.
 type VirusMonitoringListMatch struct {
-	Datasetid *string `json:"datasetid,omitempty"`
-	Fields *map[string]any `json:"fields,omitempty"`
-	RecordTimestamp *string `json:"record_timestamp,omitempty"`
-	Recordid *string `json:"recordid,omitempty"`
+	Dataset *string `json:"dataset,omitempty"`
+	Exclude *string `json:"exclude,omitempty"`
+	Lang *string `json:"lang,omitempty"`
+	Q *string `json:"q,omitempty"`
+	Refine *string `json:"refine,omitempty"`
+	Row *int `json:"row,omitempty"`
+	Sort *string `json:"sort,omitempty"`
+	Start *int `json:"start,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the
