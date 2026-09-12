@@ -51,10 +51,16 @@ main: kit: entity: dataset_metadata: {
           }
           method: "GET"
           orig: "/datasets/1.0/100304/"
-          parts: [
-            "datasets"
-            "1.0"
-            "100304"
+          segments: [
+            {
+              lit: "datasets"
+            }
+            {
+              lit: "1.0"
+            }
+            {
+              lit: "100304"
+            }
           ]
           select: {
             exist: [

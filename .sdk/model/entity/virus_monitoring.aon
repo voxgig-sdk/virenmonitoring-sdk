@@ -17,6 +17,7 @@ main: kit: entity: virus_monitoring: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "record_timestamp"
       req: false
       short: "Timestamp when the record was created/updated"
@@ -102,10 +103,16 @@ main: kit: entity: virus_monitoring: {
           }
           method: "GET"
           orig: "/records/1.0/search/"
-          parts: [
-            "records"
-            "1.0"
-            "search"
+          segments: [
+            {
+              lit: "records"
+            }
+            {
+              lit: "1.0"
+            }
+            {
+              lit: "search"
+            }
           ]
           select: {
             exist: [

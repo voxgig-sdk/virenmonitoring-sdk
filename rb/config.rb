@@ -86,10 +86,16 @@ module VirenmonitoringConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/datasets/1.0/100304/",
-                  "parts" => [
-                    "datasets",
-                    "1.0",
-                    "100304",
+                  "segments" => [
+                    {
+                      "lit" => "datasets",
+                    },
+                    {
+                      "lit" => "1.0",
+                    },
+                    {
+                      "lit" => "100304",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -100,6 +106,11 @@ module VirenmonitoringConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "datasets",
+                    "1.0",
+                    "100304",
+                  ],
                 },
               ],
             },
@@ -120,6 +131,7 @@ module VirenmonitoringConfig
               "type" => "`$OBJECT`",
             },
             {
+              "format" => "date-time",
               "name" => "record_timestamp",
               "short" => "Timestamp when the record was created/updated",
               "type" => "`$STRING`",
@@ -196,10 +208,16 @@ module VirenmonitoringConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/records/1.0/search/",
-                  "parts" => [
-                    "records",
-                    "1.0",
-                    "search",
+                  "segments" => [
+                    {
+                      "lit" => "records",
+                    },
+                    {
+                      "lit" => "1.0",
+                    },
+                    {
+                      "lit" => "search",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -217,6 +235,11 @@ module VirenmonitoringConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "records",
+                    "1.0",
+                    "search",
+                  ],
                 },
               ],
             },
