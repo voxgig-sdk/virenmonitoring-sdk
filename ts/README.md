@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring'
+import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring-sdk'
 
 const client = new VirenmonitoringSDK()
 ```
@@ -449,7 +449,7 @@ virenmonitoring/
 Import the SDK from the package root:
 
 ```ts
-import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring'
+import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring-sdk'
 ```
 
 ### Entity state

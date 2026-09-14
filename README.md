@@ -105,7 +105,7 @@ local results, err = client:DatasetMetadata():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/virenmonitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/virenmonitoring-sdk/releases) |
+| TypeScript | `@voxgig-sdk/virenmonitoring-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/virenmonitoring-sdk/releases) |
 | Python | `voxgig-sdk-virenmonitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/virenmonitoring-sdk/releases) |
 | PHP | `voxgig-sdk/virenmonitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/virenmonitoring-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/virenmonitoring-sdk/go` | `go get github.com/voxgig-sdk/virenmonitoring-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:DatasetMetadata():list()
 ### TypeScript
 
 ```ts
-import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring'
+import { VirenmonitoringSDK } from '@voxgig-sdk/virenmonitoring-sdk'
 
 const client = new VirenmonitoringSDK()
 
